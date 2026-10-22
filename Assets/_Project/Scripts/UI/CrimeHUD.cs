@@ -1,3 +1,4 @@
+using CrimeLife.Core;
 using CrimeLife.Crime;
 using CrimeLife.Interaction;
 using CrimeLife.NPC;
@@ -33,8 +34,13 @@ namespace CrimeLife.UI
             _wallet.Changed += SetMoney;
             _heat.HeatChanged += SetHeat;
             _crime.CrimeResolved += ShowResult;
-            _police.ChasingChanged += ShowChase;
-            _police.PlayerArrested += ShowArrest;
+            // 집 씬에는 경찰이 없다
+            if (_police != null)
+            {
+                _police.ChasingChanged += ShowChase;
+                _police.PlayerArrested += ShowArrest;
+            }
+            GameSession.Instance.Notice += ShowMessage;
             _interactor.Rejected += ShowMessage;
             _interactor.LootSold += ShowSold;
             _crime.Rejected += ShowMessage;
@@ -43,6 +49,7 @@ namespace CrimeLife.UI
 
         private void OnDestroy()
         {
+            if (GameSession.Current != null) GameSession.Current.Notice -= ShowMessage;
             if (_wallet != null) _wallet.Changed -= SetMoney;
             if (_heat != null) _heat.HeatChanged -= SetHeat;
             if (_crime != null)

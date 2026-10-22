@@ -31,6 +31,20 @@ namespace CrimeLife.Needs
 
         public float Get(NeedType type) => _values[(int)type];
 
+        public float[] ToArray() => (float[])_values.Clone();
+
+        // 저장된 값 복원. 개수가 다르면(저장 형식이 바뀐 경우) 무시하고 현재 값을 유지한다.
+        public void Restore(float[] values)
+        {
+            if (values == null || values.Length != Count) return;
+
+            for (int i = 0; i < Count; i++)
+            {
+                _values[i] = Mathf.Clamp(values[i], 0f, MaxValue);
+                ValueChanged?.Invoke((NeedType)i, _values[i]);
+            }
+        }
+
         public bool IsCritical(NeedType type) =>
             _values[(int)type] <= _settings[(int)type].CriticalThreshold;
 

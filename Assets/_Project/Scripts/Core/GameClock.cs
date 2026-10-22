@@ -4,7 +4,7 @@ using UnityEngine;
 namespace CrimeLife.Core
 {
     // NPC 일과표와 UI가 공유하는 게임 시계. 0~24시를 순환한다.
-    public class GameClock : MonoBehaviour
+    public class GameClock : MonoBehaviour, ISaveable
     {
         [SerializeField, Range(0f, 24f)] private float _startHour = 7f;
         [Tooltip("실시간 1초당 흐르는 게임 시간(시간 단위)")]
@@ -22,6 +22,14 @@ namespace CrimeLife.Core
         private void Awake()
         {
             _hour = _startHour;
+            _lastMinute = (int)(_hour * 60f);
+        }
+
+        public void Save(SaveData data) => data.Hour = _hour;
+
+        public void Load(SaveData data)
+        {
+            _hour = Mathf.Repeat(data.Hour, 24f);
             _lastMinute = (int)(_hour * 60f);
         }
 

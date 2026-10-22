@@ -5,7 +5,7 @@
         <ui:Label name="money" text="" class="info" />
         <ui:Label name="heat" text="" class="info" />
         <ui:Label name="message" text="" class="info" />
-        <ui:Label name="hint" text="클릭: 이동/소매치기   Shift+클릭: 강도" class="info" />
+        <ui:Label name="hint" text="클릭: 이동/소매치기   Shift+클릭: 강도   F5 저장 / F9 불러오기" class="info" />
         <ui:ProgressBar name="satiety" title="포만감" low-value="0" high-value="100" value="80" />
         <ui:ProgressBar name="energy" title="에너지" low-value="0" high-value="100" value="80" />
         <ui:ProgressBar name="calm" title="평온" low-value="0" high-value="100" value="80" />

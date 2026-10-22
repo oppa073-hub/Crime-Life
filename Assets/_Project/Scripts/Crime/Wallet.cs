@@ -1,10 +1,11 @@
 using System;
+using CrimeLife.Core;
 using UnityEngine;
 
 namespace CrimeLife.Crime
 {
     // 현금과 장물을 따로 둔다: 범죄로 얻은 건 장물이고, 처분소에서 현금으로 바꿔야 쓸 수 있다.
-    public class Wallet : MonoBehaviour
+    public class Wallet : MonoBehaviour, ISaveable
     {
         [SerializeField, Min(0)] private int _cash;
         [SerializeField, Min(0)] private int _loot;
@@ -49,6 +50,19 @@ namespace CrimeLife.Crime
         {
             _cash = Mathf.Max(0, _cash - cash);
             _loot = Mathf.Max(0, _loot - loot);
+            Notify();
+        }
+
+        public void Save(SaveData data)
+        {
+            data.Cash = _cash;
+            data.Loot = _loot;
+        }
+
+        public void Load(SaveData data)
+        {
+            _cash = Mathf.Max(0, data.Cash);
+            _loot = Mathf.Max(0, data.Loot);
             Notify();
         }
 

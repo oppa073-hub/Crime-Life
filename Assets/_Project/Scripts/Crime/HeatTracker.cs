@@ -1,11 +1,12 @@
 using System;
+using CrimeLife.Core;
 using UnityEngine;
 
 namespace CrimeLife.Crime
 {
     // 수배의 최소 버전: 범죄를 저지르면 오르고 시간이 지나면 식는다.
     // 경찰 반응은 아직 없고, 나중에 이 값(Heat)을 읽어서 붙인다.
-    public class HeatTracker : MonoBehaviour
+    public class HeatTracker : MonoBehaviour, ISaveable
     {
         public const float MaxHeat = 100f;
 
@@ -22,6 +23,14 @@ namespace CrimeLife.Crime
         public void Add(float amount)
         {
             _heat = Mathf.Clamp(_heat + amount, 0f, MaxHeat);
+            Notify();
+        }
+
+        public void Save(SaveData data) => data.Heat = _heat;
+
+        public void Load(SaveData data)
+        {
+            _heat = Mathf.Clamp(data.Heat, 0f, MaxHeat);
             Notify();
         }
 

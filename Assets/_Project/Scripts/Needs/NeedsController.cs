@@ -1,9 +1,10 @@
 using System;
+using CrimeLife.Core;
 using UnityEngine;
 
 namespace CrimeLife.Needs
 {
-    public class NeedsController : MonoBehaviour
+    public class NeedsController : MonoBehaviour, ISaveable
     {
         [SerializeField] private NeedsConfig _config;
 
@@ -32,6 +33,10 @@ namespace CrimeLife.Needs
         {
             _model.Tick(Time.deltaTime * _config.GameHoursPerRealSecond);
         }
+
+        public void Save(SaveData data) => data.Needs = _model.ToArray();
+
+        public void Load(SaveData data) => _model.Restore(data.Needs);
 
         public float Get(NeedType type) => _model.Get(type);
         public void Add(NeedType type, float delta) => _model.Add(type, delta);

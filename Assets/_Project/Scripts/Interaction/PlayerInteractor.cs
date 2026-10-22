@@ -1,4 +1,5 @@
 using System;
+using CrimeLife.Core;
 using CrimeLife.Crime;
 using CrimeLife.Needs;
 using UnityEngine;
@@ -104,7 +105,11 @@ namespace CrimeLife.Interaction
 
             if (config.LootConversionRate > 0f)
                 LootSold?.Invoke(_wallet.ConvertAllLoot(config.LootConversionRate));
+
+            string scene = config.LoadScene;
+            string spawnId = config.SpawnId;
             Cancel();
+            if (!string.IsNullOrEmpty(scene)) GameSession.Instance.GoTo(scene, spawnId);
         }
     }
 }

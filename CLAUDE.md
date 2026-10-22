@@ -5,7 +5,8 @@
 - 엔진: Unity 6 (6000.3.5f2)
 - 시점/플랫폼: 3D, 심즈식 탑다운 카메라 + 클릭 이동(NavMesh) / 플랫폼은 미정(모바일 또는 PC — 확정 후 수정)
 - 핵심 루프: 욕구 관리 → 타겟 탐색 → 범죄 실행 → 도주 → 장물 처분/정산 → 반복
-- 현재 단계: MVP 프로토타입 (욕구 3개 + 범죄 2종 + NPC 5명 범위)
+- 게임 비전: 심즈 + GTA. 플레이어 집을 꾸미고 거기서 생활한다. 도시는 별도 씬이고, 다른 캐릭터와 상호작용/관계를 쌓는다. 범죄로 먹고사는 게 생계 수단이다. (범죄 시스템은 이 비전의 일부일 뿐이고, 집 꾸미기·관계·생활비가 핵심 축)
+- 현재 단계: MVP 프로토타입 완료(욕구 3개 + 범죄 2종 + NPC 5명 + 경찰 + 정산). 지금은 "비전 구현" 단계: A 구조(씬 분리/저장) → B 집 꾸미기 → C 도시 블록아웃 → D 관계 → E 생활비 → F 에셋 교체. 에셋은 박스(블록아웃)로 먼저 만들고 나중에 프리팹만 갈아 끼운다.
 
 ## 작업 원칙
 - 요청한 범위만 수정한다. 관련 없는 파일이나 코드는 리팩터링하지 않는다.
@@ -24,7 +25,7 @@
 Assets/
   _Project/
     Scripts/       # CrimeLife.Runtime.asmdef (EditMode 테스트가 참조)
-      Core/        # GameClock, SimsCameraRig 등
+      Core/        # GameClock, SimsCameraRig, GameSession(씬 전환/저장), SaveData, SpawnPoint
       Needs/       # 욕구 시스템 (포만감/에너지/평온)
       Interaction/ # 가구 상호작용 (Interactable, PlayerInteractor)
       Player/      # 클릭 이동
@@ -34,7 +35,8 @@ Assets/
     UI/            # UXML, USS, PanelSettings
     Tests/EditMode/
     Data/          # ScriptableObject 데이터 (NeedsConfig, CrimeConfig, Npc_*, Interactions/)
-    Prefabs/ Scenes/ Art/ Audio/   # 아직 비어 있음
+    Prefabs/ Art/ Audio/           # Art는 머티리얼만 있음
+Assets/Scenes/   # City(도시), Home(플레이어 집). Build Settings에 둘 다 등록돼 있다
 ```
 - 입력은 Input System을 쓴다. 클릭은 `Update` 폴링 대신 `InputAction` 콜백으로 받는다.
 - 욕구는 모두 "충족도"(100 = 좋음)다. 스트레스는 평온(Calm)이 줄어드는 것으로 표현한다.
@@ -66,6 +68,13 @@ Assets/
 - 한국어로 답한다.
 - 변경한 파일 목록과 Unity 에디터에서 해야 할 수동 작업(컴포넌트 붙이기, 인스펙터 연결 등)을 마지막에 정리한다.
 
+## 씬 전환과 저장
+- 상태(지갑/욕구/열기/시계)는 각 컴포넌트가 들고 있고, `ISaveable`을 구현해 `SaveData`에 넣고 꺼낸다. `GameSession`(싱글톤, 자동 생성)이 씬 전환 때 옮겨 담는다. 새 상태를 저장하려면 `ISaveable`을 구현하고 `SaveData`에 필드를 추가한다.
+- 문은 `InteractionConfig`의 `LoadScene`/`SpawnId`로 정의한다. 도착 씬에는 `SpawnPoint` + `SceneSpawner`가 있어야 한다.
+- F5 저장 / F9 불러오기. 저장 파일은 `Application.persistentDataPath/save.json`.
+- 씬을 새로 만들 때: Build Settings에 등록하고, NavMeshSurface는 씬마다 별도 NavMeshData 에셋(`Data/NavMesh_<씬>.asset`)으로 굽는다 (공유하면 서로 덮어쓴다).
+- NPC 상태는 아직 저장하지 않는다 (도시에 들어올 때마다 일과표 위치로 초기화).
+
 ## 현재 TODO
 - [x] 욕구 시스템 기본 구현
 - [x] 플레이어 이동/상호작용
@@ -77,6 +86,15 @@ Assets/
 - [x] 범죄 쿨다운(당한 NPC는 30초 경계), 목격/신고(반경 8m, 경계심 비례, 신고 시 열기 +15)
 - [x] 장물 처분/정산 (범죄 수익은 장물, 처분소에서 70%로 현금화, 체포 시 장물 전부 압수, 음식은 현금 20)
 - [x] 마우스 클릭 입력과 HUD 표시 확인 (가상 마우스 입력 + 스크린샷으로 검증)
+
+### 비전 구현 로드맵
+- [x] A. 구조: 집/도시 씬 분리, 문으로 이동, 상태 유지, F5/F9 저장
+- [ ] B. 집 꾸미기: 격자 가구 배치(회전/이동/삭제, 배치 판정, NavMesh 갱신), 가구는 데이터(SO)+프리팹 참조. 벽/문/바닥 편집은 그 다음
+- [ ] C. 도시 블록아웃: 도로/건물을 박스로, NPC 일과표를 건물에 연결
+- [ ] D. 관계: NPC별 친밀도, 클릭 메뉴(대화/선물 등), 관계가 범죄에 영향
+- [ ] E. 생활비: 월세/음식값/공과금으로 범죄 생계 압박
+- [ ] F. 에셋 교체: 박스 → 모델/애니메이션 (`Assets/_External/`에 두고 gitignore)
+- [ ] 가구 배치 상태를 SaveData에 저장 (B 이후), NPC 상태 저장
 
 ## MCP 검증 팁
 - 플레이 모드에서 `Application.runInBackground = true`를 코드로 켜야 에디터 포커스가 없어도 프레임이 흐른다 (프로젝트 설정은 건드리지 않는다).

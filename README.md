@@ -41,7 +41,7 @@ Unity 6(6000.3.5f2)으로 만들었고, 핵심 루프가 한 바퀴 도는 MVP�
 ```
 Assets/_Project/
   Scripts/
-    Core/         게임 시계, 카메라 리그
+    Core/         게임 시계, 카메라 리그, 씬 전환/저장(GameSession)
     Needs/        욕구 모델(순수 C#), 설정, 컨트롤러
     Interaction/  가구 상호작용(비용·환전까지 데이터로 정의)
     Player/       클릭 이동
@@ -54,7 +54,7 @@ Assets/_Project/
 
 설계에서 신경 쓴 점:
 
-- **로직과 MonoBehaviour 분리**: 욕구 계산, 범죄 판정, 일과표 선택, 경찰 상태 전환, 목격 판정은 순수 C#이라 에디터를 띄우지 않고 EditMode 테스트로 검증합니다. (현재 33개)
+- **로직과 MonoBehaviour 분리**: 욕구 계산, 범죄 판정, 일과표 선택, 경찰 상태 전환, 목격 판정은 순수 C#이라 에디터를 띄우지 않고 EditMode 테스트로 검증합니다. (현재 37개)
 - **밸런스 값은 코드에 두지 않음**: 감소 속도, 성공률, 벌금 비율 등은 모두 ScriptableObject에서 조정합니다.
 - **시스템 간 결합 최소화**: 시스템끼리 직접 부르지 않고 C# event로 통신합니다. UI도 값이 바뀔 때만 갱신하고 매 프레임 폴링하지 않습니다.
 - **생활 ↔ 범죄 연결 지점을 명시**: `NeedsModel.GetCrimeModifier()`(생활→범죄), `CrimeOutcome`(범죄→생활)으로 두 시스템이 만나는 곳을 한 군데로 모았습니다.
@@ -62,7 +62,7 @@ Assets/_Project/
 ## 실행 방법
 
 1. Unity **6000.3.5f2**로 이 폴더를 엽니다. (패키지는 자동으로 받아집니다.)
-2. `Assets/Scenes/SampleScene`을 열고 Play 합니다.
+2. `Assets/Scenes/City`(도시)를 열고 Play 합니다. 갈색 문으로 `Home`(집)에 들어갈 수 있습니다. F5 저장 / F9 불러오기.
 3. 테스트는 Window → General → Test Runner → EditMode에서 실행합니다.
 
 ## 개발 방식
