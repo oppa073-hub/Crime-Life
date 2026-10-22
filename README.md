@@ -3,7 +3,9 @@
 심즈처럼 생활을 관리하면서, GTA처럼 범죄를 저지르고 쫓기는 **3D 생활 시뮬레이션 + 범죄 액션** 프로토타입입니다.
 Unity 6(6000.3.5f2)으로 만들었고, 핵심 루프가 한 바퀴 도는 MVP까지 구현했습니다.
 
-![도시 전경](docs/images/city-blockout.png)
+![캐릭터 에셋을 입힌 도시](docs/images/city-characters.png)
+
+![도시 블록아웃 전경](docs/images/city-blockout.png)
 
 ![NPC를 클릭하면 뜨는 관계 메뉴](docs/images/npc-menu.png)
 
@@ -77,6 +79,14 @@ Assets/_Project/
 1. Unity **6000.3.5f2**로 이 폴더를 엽니다. (패키지는 자동으로 받아집니다.)
 2. `Assets/Scenes/City`(도시)를 열고 Play 합니다. 갈색 문으로 `Home`(집)에 들어갈 수 있습니다. F5 저장 / F9 불러오기.
 3. 테스트는 Window → General → Test Runner → EditMode에서 실행합니다.
+
+## 외부 에셋
+
+캐릭터 모델과 애니메이션은 외부 에셋 팩(Cartoon City Massive Megapack, Characters Full)을 사용했고, **재배포 라이선스 문제로 저장소에 포함하지 않았습니다.** (`Assets/_External/`는 git에서 제외됩니다.)
+
+- 에셋이 없어도 게임은 똑같이 동작합니다. 캐릭터는 `CharacterVisual` 슬롯이 모델을 찾지 못하면 색 캡슐(플레이어 초록, 경찰 파랑, NPC 회색)로 대체합니다.
+- 에셋을 쓰려면 해당 팩을 구해서 `Assets/_External/` 아래에 두고, 캐릭터 슬롯의 모델 프리팹을 다시 연결하면 됩니다.
+- 가구와 건물은 아직 박스(블록아웃)입니다.
 
 ## 개발 방식
 

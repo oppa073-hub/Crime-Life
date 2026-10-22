@@ -99,6 +99,11 @@ Assets/Scenes/   # City(도시), Home(플레이어 집). Build Settings에 둘 �
 - [ ] D-2(선택). 사교 욕구(4번째 욕구)로 대화의 동기 만들기, NPC끼리의 관계, 관계가 정보/장물 거래로 이어지게
 - [x] E. 생활비: 게임 시간 48시간마다 월세 80 + 공과금 20 청구, 집 우편함에서 납부. 기한(24시간) 넘기면 연체료 20% + 평온 -30 + 가장 비싼 가구 압류(도시에서 밀린 건 집에 들어올 때 적용). `GameClock`에 Day/TotalHours 추가. 음식은 냉장고 20
 - [ ] F. 에셋 교체: 박스 → 모델/애니메이션 (`Assets/_External/`에 두고 gitignore)
+  - [x] F-1 캐릭터: `CharacterVisual` 슬롯(모델 프리팹 또는 색 캡슐 대체) + `CharacterLocomotion.controller`(속도 0/3.5/6 블렌드: 대기/걷기/달리기) + `CharacterAnimator`. 플레이어 `Character_10_1_1`, 민수 7_1_1, 지연 11_1_2, 철수 B_1, 영희 4_1_1, 동수 9_1_1, 경찰 `PoliceMan_B_1_1`
+  - [ ] F-2 도시: 건물/도로/소품 프리팹으로 교체 (NavMesh와 NPC 출입구 위치 재조정 필요)
+  - [ ] F-3 집 가구: 실내 모델이 있는지 확인 후 결정
+  - 외부 에셋 규칙: 씬/프리팹이 `_External`을 직접 참조하면 에셋 없는 환경에서 깨진다. `CharacterVisual`처럼 "참조가 비면 대체물"이 되는 슬롯 구조로 만들어 둔다. 에셋 임포트 시 `.blend`는 Blender가 없으면 에러가 나므로 프로젝트에 넣지 않는다(FBX만 쓴다)
+  - 에셋 팩의 `.unitypackage`를 임포트하면 URP 설정(`Assets/Settings/DefaultVolumeProfile` 등)을 덮어쓰고 `Packages/manifest.json`을 바꾼다. 임포트 후 덮어쓴 설정을 git으로 복원하고, 풀린 폴더를 `_External`로 옮긴다. 외부 팩이 요구한 패키지(ShaderGraph, VFX Graph, Adaptive Performance)는 아직 커밋하지 않았다
 - [ ] 가구 배치 상태를 SaveData에 저장 (B 이후), NPC 상태 저장
 
 ## MCP 검증 팁
