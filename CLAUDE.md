@@ -33,7 +33,7 @@ Assets/
       Interaction/ # 가구 상호작용 (Interactable, PlayerInteractor)
       Player/      # 클릭 이동
       Crime/       # ICrimeAction, 소매치기, 지갑, 수배 열기
-      NPC/         # NpcProfile, 일과표, Waypoint
+      NPC/         # NpcData/NpcAgent, 일과표, 랜덤 생성(NpcGenerator), 인구 관리(PopulationManager), 장소(Waypoint/WaypointDirectory)
       UI/          # UI Toolkit HUD 스크립트
     UI/            # UXML, USS, PanelSettings
     Tests/EditMode/
@@ -96,6 +96,7 @@ Assets/Scenes/   # City(도시), Home(플레이어 집). Build Settings에 둘 �
 - [ ] B-2. 벽/문/바닥 편집 (심즈의 핵심이지만 방 판정/건축 규칙이 따라와서 따로 진행)
 - [x] C. 도시 블록아웃: 십자 도로 + 건물 박스 10개(NPC 집 5, 회사, 카페, 시장, 경찰서, 내 집) + 공원/광장 바닥, 건물 이름표(`PlaceLabels`). 건물 몸체는 NPC 장소(Waypoint) 뒤쪽에 두어서 waypoint가 곧 건물 출입구다. 건물은 NavMeshModifier로 "걸을 수 없음" 처리(지붕 위로 못 올라감)
 - [x] D. 관계: NPC별 친밀도(0~100, 낯선 사람/아는 사이/친구/절친), NPC 클릭 메뉴(대화/선물/소매치기/강도), 저장. 친할수록 경계심↓(털기 쉽고 목격 신고도 덜 함), 친한 사람을 털면 친밀도 폭락 + 죄책감으로 평온↓. NPC 쫓아가기는 `NpcChaser`를 범죄/사교가 공유. UI 위 클릭이 월드로 새지 않도록 `UiHit`로 막는다
+- [x] 인구 구조(도시 계획 전 선행 작업): `NpcData`(NPC 정체성)를 고정 주요 NPC(`NpcProfile.ToData()`)와 랜덤 NPC(`NpcGenerator`)가 함께 쓴다. `PopulationManager`가 주요 5명 + 랜덤 20명을 만들고, `RotateIntervalHours`(게임 3시간)마다 `RotateCount`(2)명을 내보내고 새로 채운다(플레이어 14m 안의 NPC와 부름 중인 NPC는 제외). 관계(`RelationshipBook.Changed`)가 생긴 랜덤 NPC는 "아는 사람"(`SaveData.KnownNpcs`, NpcData 통째로 저장)이 되고, 도시에 없어도 `Summon`으로 집에서 불러올 수 있다(P 연락처, 친밀도 20 이상). 아는 사람은 한 명씩 확률(첫 입장 35%, 순환마다 6%)로 다시 나타난다. 성격은 경계심 + 친화력(`Sociability`, 대화/선물 효과 0.5~1.5배). NPC 장소는 `Waypoint`의 Id/역할(`Residence` 등)과 일과표의 `@Home`으로 연결하므로 도시를 새로 만들어도 장소만 같은 Id/역할로 배치하면 인구 구조는 그대로 쓴다. 외형은 `CharacterCatalog` 번호(에셋이 없으면 번호별 색 캡슐)
 - [ ] D-2(선택). 사교 욕구(4번째 욕구)로 대화의 동기 만들기, NPC끼리의 관계, 관계가 정보/장물 거래로 이어지게
 - [x] E. 생활비: 게임 시간 48시간마다 월세 80 + 공과금 20 청구, 집 우편함에서 납부. 기한(24시간) 넘기면 연체료 20% + 평온 -30 + 가장 비싼 가구 압류(도시에서 밀린 건 집에 들어올 때 적용). `GameClock`에 Day/TotalHours 추가. 음식은 냉장고 20
 - [ ] F. 에셋 교체: 박스 → 모델/애니메이션 (`Assets/_External/`에 두고 gitignore)

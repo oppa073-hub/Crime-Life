@@ -113,14 +113,15 @@ namespace CrimeLife.UI
             _npc = npc;
             float friendship = _book.Get(npc);
             RelationshipTier tier = RelationshipLogic.GetTier(friendship, _relationshipConfig.Settings);
-            _title.text = $"{npc.DisplayName}  {RelationshipText.TierName(tier)} ({Mathf.RoundToInt(friendship)})";
+            string personality = string.IsNullOrEmpty(npc.Personality) ? "" : $"  [{npc.Personality}]";
+            _title.text = $"{npc.DisplayName}{personality}\n{RelationshipText.TierName(tier)} ({Mathf.RoundToInt(friendship)})";
 
             // NPC 머리 오른쪽에 띄운다
             Vector3 head = npc.transform.position + Vector3.up * 2f;
             Vector2 pos = RuntimePanelUtils.CameraTransformWorldToPanel(_root.panel, head, _camera);
-            float maxX = Mathf.Max(0f, _root.resolvedStyle.width - 210f);
-            // 메뉴 높이(제목 + 버튼 5개)만큼 여유를 둬서 화면 아래로 잘리지 않게 한다
-            float maxY = Mathf.Max(0f, _root.resolvedStyle.height - 280f);
+            float maxX = Mathf.Max(0f, _root.resolvedStyle.width - 230f);
+            // 메뉴 높이(제목 2줄 + 버튼 5개)만큼 여유를 둬서 화면 아래로 잘리지 않게 한다
+            float maxY = Mathf.Max(0f, _root.resolvedStyle.height - 300f);
             _panel.style.left = Mathf.Clamp(pos.x + 30f, 0f, maxX);
             _panel.style.top = Mathf.Clamp(pos.y - 20f, 0f, maxY);
 

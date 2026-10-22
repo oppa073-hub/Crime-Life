@@ -7,7 +7,7 @@
         <ui:Label name="bill" text="" class="info" />
         <ui:Label name="message" text="" class="info" />
         <ui:Label name="relation" text="" class="info" />
-        <ui:Label name="hint" text="클릭: 이동 / NPC 클릭: 메뉴   F5 저장 / F9 불러오기" class="info" />
+        <ui:Label name="hint" text="클릭: 이동 / NPC 클릭: 메뉴   P: 연락처   F5 저장 / F9 불러오기" class="info" />
         <ui:ProgressBar name="satiety" title="포만감" low-value="0" high-value="100" value="80" />
         <ui:ProgressBar name="energy" title="에너지" low-value="0" high-value="100" value="80" />
         <ui:ProgressBar name="calm" title="평온" low-value="0" high-value="100" value="80" />

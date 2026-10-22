@@ -14,8 +14,11 @@ namespace CrimeLife.Social
         // (NPC, 바뀐 뒤 값, 변화량)
         public event Action<NpcAgent, float, float> Changed;
 
-        public float Get(NpcAgent npc) =>
-            _values.TryGetValue(npc.Id, out float value) ? value : npc.InitialFriendship;
+        public float Get(NpcAgent npc) => Get(npc.Id, npc.InitialFriendship);
+
+        // 도시에 없는 사람(전화번호부)도 id로 조회할 수 있게 한다
+        public float Get(string npcId, float initialFriendship) =>
+            _values.TryGetValue(npcId, out float value) ? value : initialFriendship;
 
         public float Add(NpcAgent npc, float delta)
         {

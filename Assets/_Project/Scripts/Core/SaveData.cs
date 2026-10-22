@@ -48,6 +48,9 @@ namespace CrimeLife.Core
         // 도시에 있는 동안 연체된 분의 압류. 집에 들어오면 적용한다
         public int PendingSeizures;
 
+        // 플레이어와 관계를 맺어서 "아는 사람"이 된 랜덤 NPC. 지금 도시에 없어도 부를 수 있게 통째로 저장한다.
+        public List<CrimeLife.NPC.NpcData> KnownNpcs = new List<CrimeLife.NPC.NpcData>();
+
         // 저장된 NPC만 들어 있고, 없는 NPC는 프로필의 초기 친밀도를 쓴다
         public List<RelationshipRecord> Relationships = new List<RelationshipRecord>();
 

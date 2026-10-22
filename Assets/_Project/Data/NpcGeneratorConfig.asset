@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be59a858e706fe48a4a1d4c1881c7d4, type: 3}
+  m_Name: NpcGeneratorConfig
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.NpcGeneratorConfig
+  _settings:
+    Surnames:
+    - "\uAE40"
+    - "\uC774"
+    - "\uBC15"
+    - "\uCD5C"
+    - "\uC815"
+    - "\uAC15"
+    - "\uC870"
+    - "\uC724"
+    - "\uC7A5"
+    - "\uC784"
+    - "\uD55C"
+    - "\uC624"
+    - "\uC11C"
+    - "\uC2E0"
+    - "\uAD8C"
+    - "\uD669"
+    - "\uC548"
+    - "\uC1A1"
+    - "\uB958"
+    - "\uD64D"
+    GivenNames:
+    - "\uBBFC\uC900"
+    - "\uC11C\uC5F0"
+    - "\uC9C0\uC6B0"
+    - "\uD558\uC900"
+    - "\uC11C\uC724"
+    - "\uB3C4\uC724"
+    - "\uC608\uC900"
+    - "\uC9C0\uBBFC"
+    - "\uC218\uC544"
+    - "\uC2DC\uC6B0"
+    - "\uD558\uC724"
+    - "\uC8FC\uC6D0"
+    - "\uC9C0\uD638"
+    - "\uB2E4\uC740"
+    - "\uAC74\uC6B0"
+    - "\uC720\uC9C4"
+    - "\uC740\uC6B0"
+    - "\uCC44\uC6D0"
+    - "\uD604\uC6B0"
+    - "\uC18C\uC5F0"
+    - "\uC900\uC11C"
+    - "\uB098\uC5F0"
+    - "\uD0DC\uC591"
+    - "\uBCF4\uB77C"
+    - "\uC131\uBBFC"
+    - "\uC9C0\uC740"
+    - "\uC7AC\uC6D0"
+    - "\uD558\uB298"
+    - "\uB3D9\uD604"
+    - "\uC138\uC544"
+    - "\uC6B0\uC9C4"
+    - "\uBBF8\uB098"
+    - "\uAE30\uBC94"
+    - "\uD61C\uC9C4"
+    - "\uC0C1\uCCA0"
+    - "\uB9D0\uC21C"
+    - "\uC601\uC218"
+    - "\uC815\uD76C"
+    - "\uC21C\uC790"
+    - "\uBCF5\uB3D9"
+    Templates:
+    - Id: worker
+      Entries:
+      - StartHour: 0
+        WaypointId: '@Home'
+        Label: "\uD734\uC2DD"
+      - StartHour: 8
+        WaypointId: Work
+        Label: "\uCD9C\uADFC"
+      - StartHour: 12
+        WaypointId: Cafe
+        Label: "\uC810\uC2EC"
+      - StartHour: 13
+        WaypointId: Work
+        Label: "\uADFC\uBB34"
+      - StartHour: 18
+        WaypointId: Plaza
+        Label: "\uD1F4\uADFC\uAE38"
+      - StartHour: 21
+        WaypointId: '@Home'
+        Label: "\uADC0\uAC00"
+    - Id: homebody
+      Entries:
+      - StartHour: 0
+        WaypointId: '@Home'
+        Label: "\uD734\uC2DD"
+      - StartHour: 10
+        WaypointId: Market
+        Label: "\uC7A5\uBCF4\uAE30"
+      - StartHour: 11
+        WaypointId: '@Home'
+        Label: "\uC9D1\uC548\uC77C"
+      - StartHour: 15
+        WaypointId: Park
+        Label: "\uC0B0\uCC45"
+      - StartHour: 17
+        WaypointId: '@Home'
+        Label: "\uADC0\uAC00"
+    - Id: socialite
+      Entries:
+      - StartHour: 0
+        WaypointId: '@Home'
+        Label: "\uD734\uC2DD"
+      - StartHour: 10
+        WaypointId: Cafe
+        Label: "\uCE74\uD398"
+      - StartHour: 14
+        WaypointId: Plaza
+        Label: "\uC0B0\uCC45"
+      - StartHour: 18
+        WaypointId: Park
+        Label: "\uBAA8\uC784"
+      - StartHour: 22
+        WaypointId: '@Home'
+        Label: "\uADC0\uAC00"
+    - Id: nightowl
+      Entries:
+      - StartHour: 0
+        WaypointId: Plaza
+        Label: "\uBC24 \uC0B0\uCC45"
+      - StartHour: 3
+        WaypointId: '@Home'
+        Label: "\uD734\uC2DD"
+      - StartHour: 13
+        WaypointId: Cafe
+        Label: "\uB2A6\uC740 \uC810\uC2EC"
+      - StartHour: 17
+        WaypointId: Market
+        Label: "\uC7A5\uBCF4\uAE30"
+      - StartHour: 20
+        WaypointId: Plaza
+        Label: "\uC678\uCD9C"
+    - Id: shopkeeper
+      Entries:
+      - StartHour: 0
+        WaypointId: '@Home'
+        Label: "\uD734\uC2DD"
+      - StartHour: 7
+        WaypointId: Market
+        Label: "\uC7A5\uC0AC"
+      - StartHour: 17
+        WaypointId: Plaza
+        Label: "\uD734\uC2DD"
+      - StartHour: 20
+        WaypointId: '@Home'
+        Label: "\uADC0\uAC00"
+    AlertnessMin: 0.1
+    AlertnessMax: 0.9
+    SociabilityMin: 0.1
+    SociabilityMax: 0.9
+    MoneyMin: 40
+    MoneyMax: 400

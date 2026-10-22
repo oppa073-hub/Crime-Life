@@ -15,6 +15,9 @@ MonoBehaviour:
   _id: 
   _displayName: "\uCCA0\uC218"
   _alertness: 0.2
+  _sociability: 0.3
+  _appearanceIndex: 2
+  _homeId: Home3
   _initialFriendship: 0
   _startingMoney: 80
   _schedule:

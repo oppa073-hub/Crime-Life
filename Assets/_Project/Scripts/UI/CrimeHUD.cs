@@ -20,6 +20,8 @@ namespace CrimeLife.UI
         [SerializeField] private PlayerSocialController _social;
         [SerializeField] private RelationshipBook _book;
         [SerializeField] private RelationshipConfig _relationshipConfig;
+        [Tooltip("연락처 알림용. 집 씬에서는 비워 둔다")]
+        [SerializeField] private PopulationManager _population;
 
         private Label _money;
         private Label _heatLabel;
@@ -60,10 +62,12 @@ namespace CrimeLife.UI
                 _social.Performed += ShowSocial;
             }
             if (_book != null) _book.Changed += ShowRelation;
+            if (_population != null) _population.Notice += ShowMessage;
         }
 
         private void OnDestroy()
         {
+            if (_population != null) _population.Notice -= ShowMessage;
             if (_social != null)
             {
                 _social.Rejected -= ShowMessage;

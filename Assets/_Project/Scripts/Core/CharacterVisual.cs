@@ -12,9 +12,10 @@ namespace CrimeLife.Core
         [SerializeField] private RuntimeAnimatorController _controller;
         [Tooltip("모델이 없을 때 캡슐 색 (플레이어/경찰/NPC 구분용)")]
         [SerializeField] private Color _placeholderColor = new Color(0.6f, 0.6f, 0.6f);
-
         [Tooltip("모델의 앞면이 루트의 앞(+Z)과 어긋난 만큼 보정하는 각도. 이 에셋 팩의 캐릭터는 옆(+X)을 보고 만들어져 있어 -90이 필요하다")]
         [SerializeField] private float _modelYaw = -90f;
+        [Tooltip("켜면 Awake에서 만들지 않고, 나중에 Build()로 외형을 정한다 (런타임에 생성되는 NPC용)")]
+        [SerializeField] private bool _deferBuild;
 
         [Header("이동 느낌")]
         [Tooltip("NavMeshAgent 기본값(120)은 너무 느려서, 이미 걷기 시작한 뒤에야 방향을 돌려 엉뚱한 쪽을 보며 걷는다")]
@@ -24,6 +25,8 @@ namespace CrimeLife.Core
 
         private const float Height = 1.8f;
         private const float Radius = 0.35f;
+
+        private GameObject _current;
 
         private void Awake()
         {
@@ -35,8 +38,7 @@ namespace CrimeLife.Core
                 agent.acceleration = _acceleration;
             }
 
-            if (_modelPrefab != null) BuildModel();
-            else BuildPlaceholder();
+            if (!_deferBuild) Build(_modelPrefab, _placeholderColor);
 
             // NPC/플레이어를 클릭할 때 레이캐스트가 맞는 충돌체
             var collider = gameObject.AddComponent<CapsuleCollider>();
@@ -45,9 +47,17 @@ namespace CrimeLife.Core
             collider.radius = Radius;
         }
 
-        private void BuildModel()
+        // 외형을 (다시) 만든다. 모델 프리팹이 null이면 색 캡슐로 대체한다.
+        public void Build(GameObject modelPrefab, Color placeholderColor)
         {
-            GameObject model = Instantiate(_modelPrefab, transform);
+            if (_current != null) Destroy(_current);
+
+            _current = modelPrefab != null ? BuildModel(modelPrefab) : BuildPlaceholder(placeholderColor);
+        }
+
+        private GameObject BuildModel(GameObject prefab)
+        {
+            GameObject model = Instantiate(prefab, transform);
             model.transform.localPosition = Vector3.zero;
             model.transform.localRotation = Quaternion.Euler(0f, _modelYaw, 0f);
 
@@ -57,9 +67,10 @@ namespace CrimeLife.Core
             animator.applyRootMotion = false;
 
             model.AddComponent<CharacterAnimator>();
+            return model;
         }
 
-        private void BuildPlaceholder()
+        private GameObject BuildPlaceholder(Color color)
         {
             GameObject capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
             capsule.name = "Placeholder";
@@ -67,7 +78,8 @@ namespace CrimeLife.Core
             capsule.transform.localPosition = new Vector3(0f, 1f, 0f);
             // 충돌체는 이 컴포넌트가 따로 달기 때문에 기본 것은 없앤다
             Destroy(capsule.GetComponent<Collider>());
-            capsule.GetComponent<Renderer>().material.color = _placeholderColor;
+            capsule.GetComponent<Renderer>().material.color = color;
+            return capsule;
         }
     }
 }

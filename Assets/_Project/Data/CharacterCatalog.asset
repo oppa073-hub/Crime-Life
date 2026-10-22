@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b7923b904cf9840894a2c780c51a5b, type: 3}
+  m_Name: CharacterCatalog
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.CharacterCatalog
+  _entries:
+  - Name: Character_7_1_1
+    Prefab: {fileID: 4939682478535110081, guid: 25894374d0de390439ca1bfbef2cfc2d, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.44000003, b: 0.44000003, a: 1}
+  - Name: Character_11_1_2
+    Prefab: {fileID: 8926581637815301211, guid: 16f92525d86744f45b60fecc0c7ae712, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.48408166, b: 0.44000003, a: 1}
+  - Name: Character_B_1
+    Prefab: {fileID: 8754969187837319263, guid: 8b7f7530bdcaee14c8a2d8106c9df664, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.52816325, b: 0.44000003, a: 1}
+  - Name: Character_4_1_1
+    Prefab: {fileID: 6676367317601309525, guid: 49f69f39a13cb524ab9fe616267a5ce7, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.57224494, b: 0.44000003, a: 1}
+  - Name: Character_9_1_1
+    Prefab: {fileID: 8485955541235952252, guid: cd1650e3a5c27cc4e98f9c04ebe99eeb, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.6163266, b: 0.44000003, a: 1}
+  - Name: Character_1_1_1
+    Prefab: {fileID: 6630804747906691637, guid: 71827a81daee3dc4b9efd8173ff47b17, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.6604082, b: 0.44000003, a: 1}
+  - Name: Character_1_1_10
+    Prefab: {fileID: 7660897088872909428, guid: e51559dce1a050743a469d01adf82118, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.7044898, b: 0.44000003, a: 1}
+  - Name: Character_1_1_11
+    Prefab: {fileID: 5655956375182726755, guid: 4fd99a31d117ee941a75cc2d8fbd2655, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.74857146, b: 0.44000003, a: 1}
+  - Name: Character_1_1_12
+    Prefab: {fileID: 9023922025886841429, guid: f0e034c22c8f77b4eb824fb6806897d0, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.7926531, b: 0.44000003, a: 1}
+  - Name: Character_2_1_1
+    Prefab: {fileID: 3827661044596784270, guid: ad0aae5e3187cec43b30066607aa3ca5, type: 3}
+    PlaceholderColor: {r: 0.7632653, g: 0.8, b: 0.44000003, a: 1}
+  - Name: Character_2_1_10
+    Prefab: {fileID: 1402168780719950242, guid: 1deea153a62f0ac4095ec0d12e53de35, type: 3}
+    PlaceholderColor: {r: 0.7191837, g: 0.8, b: 0.44000003, a: 1}
+  - Name: Character_2_1_11
+    Prefab: {fileID: 5095704372356276472, guid: b810399c0307f8643b2eb396642c52d7, type: 3}
+    PlaceholderColor: {r: 0.67510206, g: 0.8, b: 0.44000003, a: 1}
+  - Name: Character_2_1_2
+    Prefab: {fileID: 9023228807043249348, guid: e69f4a94ca0afdd4fbc9ab23fe9d9fe0, type: 3}
+    PlaceholderColor: {r: 0.6310204, g: 0.8, b: 0.44000003, a: 1}
+  - Name: Character_3_1_1
+    Prefab: {fileID: 7073868233906256317, guid: e4dc5bd5e9a3514448f008ad1ddc5b33, type: 3}
+    PlaceholderColor: {r: 0.5869388, g: 0.8, b: 0.44000003, a: 1}
+  - Name: Character_3_1_2
+    Prefab: {fileID: 3573992255867407190, guid: d34ae37848f9fbd4ea1a3be42381de3b, type: 3}
+    PlaceholderColor: {r: 0.5428571, g: 0.8, b: 0.44000003, a: 1}
+  - Name: Character_3_1_3
+    Prefab: {fileID: 5551730606850968200, guid: d6e7cee3b5e393d4fae6c2d2804ecda7, type: 3}
+    PlaceholderColor: {r: 0.4987755, g: 0.8, b: 0.44000003, a: 1}
+  - Name: Character_3_1_4
+    Prefab: {fileID: 2916995952351382905, guid: 9a177ec2bbf11b446a4d3a57e31e9fd5, type: 3}
+    PlaceholderColor: {r: 0.45469388, g: 0.8, b: 0.44000003, a: 1}
+  - Name: Character_4_1_2
+    Prefab: {fileID: 3582758302728469169, guid: 323fdc4956682244ca5b4062f72eec48, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.8, b: 0.46938777, a: 1}
+  - Name: Character_4_1_3
+    Prefab: {fileID: 727201816910449138, guid: 98a6ee54a6d38b84784f3c87468295bd, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.8, b: 0.51346934, a: 1}
+  - Name: Character_4_1_4
+    Prefab: {fileID: 3404823501790017450, guid: 9ffd33333d89e9f4c9a578dfb1fee4c8, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.8, b: 0.55755097, a: 1}
+  - Name: Character_4_1_5
+    Prefab: {fileID: 1612855688603605777, guid: 5dc30063bd7c42a46ab29b4849847db8, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.8, b: 0.60163265, a: 1}
+  - Name: Character_5_1_1
+    Prefab: {fileID: 1006817692222183953, guid: 5679b0d1cbaae9148b332b80671ad24a, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.8, b: 0.6457143, a: 1}
+  - Name: Character_5_1_2
+    Prefab: {fileID: 3556598427095974024, guid: 352084b8e44294a46998db755a3d9a8d, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.8, b: 0.6897959, a: 1}
+  - Name: Character_5_1_3
+    Prefab: {fileID: 2515816826412820999, guid: 63ccc8c10b4c37846ac9143fe31fa75e, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.8, b: 0.7338776, a: 1}
+  - Name: Character_5_1_4
+    Prefab: {fileID: 5895718308677128159, guid: 7dbd764d8e7d9fb42a19b0d0447c8cdd, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.8, b: 0.7779592, a: 1}
+  - Name: Character_6_1_1
+    Prefab: {fileID: 4976962680724400973, guid: d0582e8e558543447a8dfb422e1aafae, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.7779592, b: 0.8, a: 1}
+  - Name: Character_6_1_2
+    Prefab: {fileID: 8952610217150332968, guid: a05803c5c8fe445499477212d2bb58e2, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.7338776, b: 0.8, a: 1}
+  - Name: Character_6_1_3
+    Prefab: {fileID: 7693806976090102846, guid: 475360231d1a2864db95f91bf3794882, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.689796, b: 0.8, a: 1}
+  - Name: Character_6_1_4
+    Prefab: {fileID: 6616316633112686454, guid: 542d23e3334f6f446b1b13fec392e5bf, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.6457142, b: 0.8, a: 1}
+  - Name: Character_7_1_2
+    Prefab: {fileID: 4344338444434548611, guid: ff92e9ee967cd1b48a4594de1c73d8af, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.6016326, b: 0.8, a: 1}
+  - Name: Character_7_1_3
+    Prefab: {fileID: 8035149371132330468, guid: 2283e5ec49659cd4e9cb59983c489916, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.55755097, b: 0.8, a: 1}
+  - Name: Character_7_1_4
+    Prefab: {fileID: 4588697909980658047, guid: bdc4db77605d3d144b311dd569bc1066, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.51346934, b: 0.8, a: 1}
+  - Name: Character_7_1_5
+    Prefab: {fileID: 2214847154957645619, guid: 03db36e1b9243aa48b89213eb3b3a7ca, type: 3}
+    PlaceholderColor: {r: 0.44000003, g: 0.46938777, b: 0.8, a: 1}
+  - Name: Character_8_1_1
+    Prefab: {fileID: 8867370154960257502, guid: 745b97a64508780438765bb94c9ba180, type: 3}
+    PlaceholderColor: {r: 0.45469388, g: 0.44000003, b: 0.8, a: 1}
+  - Name: Character_8_1_2
+    Prefab: {fileID: 292906850439970034, guid: 228c21aac3d7ad342901dbebf65ded28, type: 3}
+    PlaceholderColor: {r: 0.4987755, g: 0.44000003, b: 0.8, a: 1}
+  - Name: Character_8_1_3
+    Prefab: {fileID: 2599920934354740077, guid: 374c9d10c4b9d7c49827da856e5dfc2c, type: 3}
+    PlaceholderColor: {r: 0.5428571, g: 0.44000003, b: 0.8, a: 1}
+  - Name: Character_8_1_4
+    Prefab: {fileID: 3218748289664370270, guid: eb965b36ec70401429174df42844b1c8, type: 3}
+    PlaceholderColor: {r: 0.58693874, g: 0.44000003, b: 0.8, a: 1}
+  - Name: Character_9_1_10
+    Prefab: {fileID: 5767642283777714382, guid: 9f7e9b21e805ef34c89aac620f8b80f6, type: 3}
+    PlaceholderColor: {r: 0.6310203, g: 0.44000003, b: 0.8, a: 1}
+  - Name: Character_9_1_2
+    Prefab: {fileID: 298005720371307838, guid: 80ad367724e8d06439b649a1d7c28907, type: 3}
+    PlaceholderColor: {r: 0.67510194, g: 0.44000003, b: 0.8, a: 1}
+  - Name: Character_9_1_3
+    Prefab: {fileID: 3632278537423891760, guid: 3bf5239eca9449441be6bfe1b97eed51, type: 3}
+    PlaceholderColor: {r: 0.71918356, g: 0.44000003, b: 0.8, a: 1}
+  - Name: Character_9_1_4
+    Prefab: {fileID: 5097490291655079548, guid: 963e9882c47e1e342bf8b5e80e524c2f, type: 3}
+    PlaceholderColor: {r: 0.7632653, g: 0.44000003, b: 0.8, a: 1}
+  - Name: Character_10_1_1
+    Prefab: {fileID: 8939820558182057662, guid: a7fc44d7f3728dc4f8544e6df10d8124, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.44000003, b: 0.7926531, a: 1}
+  - Name: Character_10_1_10
+    Prefab: {fileID: 5228052798404342514, guid: cbcc98c2758cc3847b56e717e7fa9482, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.44000003, b: 0.74857146, a: 1}
+  - Name: Character_10_1_11
+    Prefab: {fileID: 3610525611128253624, guid: 2641b742de6e5dd4d8a6001b911acef5, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.44000003, b: 0.7044898, a: 1}
+  - Name: Character_10_1_12
+    Prefab: {fileID: 1224003441662120263, guid: e75518cf53a351f42ade85c3fc80b0f2, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.44000003, b: 0.66040826, a: 1}
+  - Name: Character_11_1_3
+    Prefab: {fileID: 8680585723936304943, guid: 21473d3b45999c04096b51029ac46a01, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.44000003, b: 0.61632663, a: 1}
+  - Name: Character_11_1_4
+    Prefab: {fileID: 5460320328041678773, guid: 2b9ed0a803d06a4478080ec82e551304, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.44000003, b: 0.5722448, a: 1}
+  - Name: Character_11_1_5
+    Prefab: {fileID: 7308918457748409570, guid: 8485015053b3ffc4797fcd65d1c7f507, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.44000003, b: 0.52816325, a: 1}
+  - Name: Character_11_2_1
+    Prefab: {fileID: 1555071611743087947, guid: a22eb3340c342664d822ddaf236f9b16, type: 3}
+    PlaceholderColor: {r: 0.8, g: 0.44000003, b: 0.48408163, a: 1}

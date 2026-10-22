@@ -15,6 +15,9 @@ MonoBehaviour:
   _id: 
   _displayName: "\uBBFC\uC218"
   _alertness: 0.4
+  _sociability: 0.6
+  _appearanceIndex: 0
+  _homeId: Home
   _initialFriendship: 25
   _startingMoney: 150
   _schedule:

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using CrimeLife.Needs;
 using CrimeLife.NPC;
 using CrimeLife.Social;
@@ -25,7 +26,8 @@ namespace CrimeLife.Crime
         private ICrimeAction _mugging;
         private ICrimeAction _current;
 
-        private NpcAgent[] _allNpcs;
+        [Tooltip("도시의 사람들. 목격자를 찾는 데 쓴다. 집 씬처럼 NPC가 없는 곳에서는 비워 둔다")]
+        [SerializeField] private PopulationManager _population;
 
         public event Action<ICrimeAction, CrimeOutcome, NpcAgent> CrimeResolved;
         public event Action<NpcAgent> WitnessReported;
@@ -37,8 +39,6 @@ namespace CrimeLife.Crime
             _agent = GetComponent<NavMeshAgent>();
             _pickpocket = _config.CreatePickpocket();
             _mugging = _config.CreateMugging();
-            // 목격 판정은 범죄 시점에만 쓰므로 한 번만 모아 둔다
-            _allNpcs = FindObjectsByType<NpcAgent>(FindObjectsSortMode.None);
         }
 
         public void Request(NpcAgent target, CrimeKind kind)
@@ -113,13 +113,17 @@ namespace CrimeLife.Crime
         // 주변 NPC가 범죄를 봤다면 신고해서 열기가 더 오른다
         private void RollWitnesses(NpcAgent victim, bool success)
         {
+            if (_population == null) return;
+
             float multiplier = success ? _config.SuccessWitnessFactor : 1f;
             float radiusSqr = _config.WitnessRadius * _config.WitnessRadius;
 
-            for (int i = 0; i < _allNpcs.Length; i++)
+            // NPC가 계속 오가므로 범죄 시점의 현재 목록을 쓴다
+            IReadOnlyList<NpcAgent> npcs = _population.Active;
+            for (int i = 0; i < npcs.Count; i++)
             {
-                NpcAgent npc = _allNpcs[i];
-                if (npc == victim) continue;
+                NpcAgent npc = npcs[i];
+                if (npc == null || npc == victim) continue;
                 if ((npc.transform.position - transform.position).sqrMagnitude > radiusSqr) continue;
                 // 나와 친한 목격자는 신고를 덜 한다
                 if (!WitnessLogic.Reports(EffectiveAlertness(npc), multiplier, UnityEngine.Random.value)) continue;

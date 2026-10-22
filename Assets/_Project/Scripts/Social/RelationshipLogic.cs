@@ -59,6 +59,10 @@ namespace CrimeLife.Social
             return RelationshipTier.Stranger;
         }
 
+        // 친화력이 높은 사람은 같은 대화/선물에도 친밀도가 더 오른다 (0.5배 ~ 1.5배)
+        public static float SocialGain(float baseGain, float sociability) =>
+            baseGain * Mathf.Lerp(0.5f, 1.5f, Mathf.Clamp01(sociability));
+
         // 생활(관계) → 범죄 훅: 친할수록 경계가 풀려서 털기 쉽고, 목격해도 신고를 덜 한다
         public static float EffectiveAlertness(float alertness, float friendship, RelationshipSettings s) =>
             alertness * (1f - s.AlertnessReductionAtMax * Mathf.Clamp01(friendship / Max));

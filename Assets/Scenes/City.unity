@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.Waypoint
   _id: Plaza
+  _role: 
 --- !u!4 &14107477
 Transform:
   m_ObjectHideFlags: 0
@@ -503,6 +504,78 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193573401}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &281322386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281322389}
+  - component: {fileID: 281322388}
+  - component: {fileID: 281322387}
+  m_Layer: 0
+  m_Name: Population
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &281322387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281322386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282f3c71b4605bb42b75aa5907b3c491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.PopulationManager
+  _npcPrefab: {fileID: 5699411827840588123, guid: 83c4ca078b86baf4c8e5685f5c0df382, type: 3}
+  _config: {fileID: 11400000, guid: 2d98c2ad07a147847a4e435235d45258, type: 2}
+  _generator: {fileID: 11400000, guid: 4a957023b75dbf041a054765099013a4, type: 2}
+  _catalog: {fileID: 11400000, guid: f4b2f5c1a91e9824ab5689d91d3eed41, type: 2}
+  _clock: {fileID: 1488617047}
+  _directory: {fileID: 281322388}
+  _book: {fileID: 429944756}
+  _player: {fileID: 872865890}
+  _mainProfiles:
+  - {fileID: 11400000, guid: 38dafd8686d72df41bffbe33f9b05bb2, type: 2}
+  - {fileID: 11400000, guid: 86e93f20d8129b74a9649765554cda6d, type: 2}
+  - {fileID: 11400000, guid: b7acfba82cb7bd440877c6dcd0cb2b1f, type: 2}
+  - {fileID: 11400000, guid: 2ce4fb957c0bf1645b237ce13d0b3dd3, type: 2}
+  - {fileID: 11400000, guid: 930c1f3190585d4458844bbc0b0fa7d9, type: 2}
+  _residenceRole: Residence
+--- !u!114 &281322388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281322386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7765707bc6ce024e86c79c1c1319950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.WaypointDirectory
+--- !u!4 &281322389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281322386}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,88 +981,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372923448}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &384023660
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 384023663}
-  - component: {fileID: 384023662}
-  - component: {fileID: 384023661}
-  m_Layer: 0
-  m_Name: Npc_Minsu
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &384023661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384023660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb0fd51c1fd872c4abe4c8e72fe577a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.NpcAgent
-  _profile: {fileID: 11400000, guid: 38dafd8686d72df41bffbe33f9b05bb2, type: 2}
-  _clock: {fileID: 1488617047}
-  _waypoints:
-  - {fileID: 1730770382}
-  - {fileID: 1796077178}
-  - {fileID: 2064339568}
-  - {fileID: 1991156160}
-  - {fileID: 14107476}
-  - {fileID: 1724425609}
-  - {fileID: 1833133201}
-  - {fileID: 1063819749}
-  - {fileID: 1686733775}
-  - {fileID: 1612773164}
-  _sampleDistance: 3
---- !u!195 &384023662
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384023660}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!4 &384023663
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384023660}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1003942643}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &399302113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,12 +1012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.UI.NpcNameTags
   _camera: {fileID: 330585545}
-  _npcs:
-  - {fileID: 553691606}
-  - {fileID: 1829460585}
-  - {fileID: 384023661}
-  - {fileID: 1141527123}
-  - {fileID: 1528935505}
+  _population: {fileID: 281322387}
   _heightOffset: 2.4
 --- !u!114 &399302115
 MonoBehaviour:
@@ -1536,6 +1522,10 @@ MonoBehaviour:
   _modelPrefab: {fileID: 8939820558182057662, guid: a7fc44d7f3728dc4f8544e6df10d8124, type: 3}
   _controller: {fileID: 9100000, guid: bcf52fdc6228b3e42819249921dd1d84, type: 2}
   _placeholderColor: {r: 0.2, g: 0.75, b: 0.3, a: 1}
+  _modelYaw: -90
+  _deferBuild: 0
+  _turnSpeed: 720
+  _acceleration: 20
 --- !u!1 &488412910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,53 +1697,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &526996551
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 526996552}
-  - component: {fileID: 526996553}
-  m_Layer: 0
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &526996552
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526996551}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1829460587}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &526996553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526996551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0b85cf7260d964385024bfa79d3680, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Core.CharacterVisual
-  _modelPrefab: {fileID: 6676367317601309525, guid: 49f69f39a13cb524ab9fe616267a5ce7, type: 3}
-  _controller: {fileID: 9100000, guid: bcf52fdc6228b3e42819249921dd1d84, type: 2}
-  _placeholderColor: {r: 0.65, g: 0.65, b: 0.65, a: 1}
 --- !u!1 &533550707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,88 +1808,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533550707}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &553691605
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 553691608}
-  - component: {fileID: 553691607}
-  - component: {fileID: 553691606}
-  m_Layer: 0
-  m_Name: Npc_Cheolsu
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &553691606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553691605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb0fd51c1fd872c4abe4c8e72fe577a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.NpcAgent
-  _profile: {fileID: 11400000, guid: b7acfba82cb7bd440877c6dcd0cb2b1f, type: 2}
-  _clock: {fileID: 1488617047}
-  _waypoints:
-  - {fileID: 1730770382}
-  - {fileID: 1796077178}
-  - {fileID: 2064339568}
-  - {fileID: 1991156160}
-  - {fileID: 14107476}
-  - {fileID: 1724425609}
-  - {fileID: 1833133201}
-  - {fileID: 1063819749}
-  - {fileID: 1686733775}
-  - {fileID: 1612773164}
-  _sampleDistance: 3
---- !u!195 &553691607
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553691605}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!4 &553691608
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553691605}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14, y: 0, z: 4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 814005518}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &573017949
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,53 +1942,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573017949}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &814005517
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 814005518}
-  - component: {fileID: 814005519}
-  m_Layer: 0
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &814005518
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814005517}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 553691608}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &814005519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814005517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0b85cf7260d964385024bfa79d3680, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Core.CharacterVisual
-  _modelPrefab: {fileID: 8754969187837319263, guid: 8b7f7530bdcaee14c8a2d8106c9df664, type: 3}
-  _controller: {fileID: 9100000, guid: bcf52fdc6228b3e42819249921dd1d84, type: 2}
-  _placeholderColor: {r: 0.65, g: 0.65, b: 0.65, a: 1}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,6 +2118,7 @@ MonoBehaviour:
   _heat: {fileID: 872865895}
   _relationships: {fileID: 429944756}
   _relationshipConfig: {fileID: 11400000, guid: 1dc3fb26a7a4a204b9e7e55af5bb3134, type: 2}
+  _population: {fileID: 281322387}
 --- !u!114 &872865895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2461,100 +2276,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1001135655
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1001135656}
-  - component: {fileID: 1001135657}
-  m_Layer: 0
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1001135656
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001135655}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1528935507}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1001135657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001135655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0b85cf7260d964385024bfa79d3680, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Core.CharacterVisual
-  _modelPrefab: {fileID: 8485955541235952252, guid: cd1650e3a5c27cc4e98f9c04ebe99eeb, type: 3}
-  _controller: {fileID: 9100000, guid: bcf52fdc6228b3e42819249921dd1d84, type: 2}
-  _placeholderColor: {r: 0.65, g: 0.65, b: 0.65, a: 1}
---- !u!1 &1003942642
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1003942643}
-  - component: {fileID: 1003942644}
-  m_Layer: 0
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1003942643
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003942642}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 384023663}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1003942644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003942642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0b85cf7260d964385024bfa79d3680, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Core.CharacterVisual
-  _modelPrefab: {fileID: 4939682478535110081, guid: 25894374d0de390439ca1bfbef2cfc2d, type: 3}
-  _controller: {fileID: 9100000, guid: bcf52fdc6228b3e42819249921dd1d84, type: 2}
-  _placeholderColor: {r: 0.65, g: 0.65, b: 0.65, a: 1}
 --- !u!1 &1041258810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2846,6 +2567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.Waypoint
   _id: Home5
+  _role: Residence
 --- !u!4 &1063819750
 Transform:
   m_ObjectHideFlags: 0
@@ -2856,6 +2578,77 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14, y: 0, z: -6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1066893925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1066893928}
+  - component: {fileID: 1066893927}
+  - component: {fileID: 1066893926}
+  m_Layer: 0
+  m_Name: PhoneMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1066893926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066893925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c1801c0c4927c47bff0d03c35afcdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.UI.PhoneMenu
+  _population: {fileID: 281322387}
+  _book: {fileID: 429944756}
+  _relationshipConfig: {fileID: 11400000, guid: 1dc3fb26a7a4a204b9e7e55af5bb3134, type: 2}
+--- !u!114 &1066893927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066893925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 6df43820c7c96584192dd80eb7bb714a, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 0}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &1066893928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066893925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2922,88 +2715,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 193573402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1141527122
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1141527125}
-  - component: {fileID: 1141527124}
-  - component: {fileID: 1141527123}
-  m_Layer: 0
-  m_Name: Npc_Jiyeon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1141527123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141527122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb0fd51c1fd872c4abe4c8e72fe577a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.NpcAgent
-  _profile: {fileID: 11400000, guid: 86e93f20d8129b74a9649765554cda6d, type: 2}
-  _clock: {fileID: 1488617047}
-  _waypoints:
-  - {fileID: 1730770382}
-  - {fileID: 1796077178}
-  - {fileID: 2064339568}
-  - {fileID: 1991156160}
-  - {fileID: 14107476}
-  - {fileID: 1724425609}
-  - {fileID: 1833133201}
-  - {fileID: 1063819749}
-  - {fileID: 1686733775}
-  - {fileID: 1612773164}
-  _sampleDistance: 3
---- !u!195 &1141527124
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141527122}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!4 &1141527125
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141527122}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14, y: 0, z: -4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1624278506}
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1304805093
 GameObject:
@@ -3371,6 +3082,7 @@ MonoBehaviour:
   _social: {fileID: 872865897}
   _book: {fileID: 429944756}
   _relationshipConfig: {fileID: 11400000, guid: 1dc3fb26a7a4a204b9e7e55af5bb3134, type: 2}
+  _population: {fileID: 281322387}
 --- !u!114 &1336230278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3883,88 +3595,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527862885}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1528935504
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1528935507}
-  - component: {fileID: 1528935506}
-  - component: {fileID: 1528935505}
-  m_Layer: 0
-  m_Name: Npc_Dongsu
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1528935505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528935504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb0fd51c1fd872c4abe4c8e72fe577a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.NpcAgent
-  _profile: {fileID: 11400000, guid: 930c1f3190585d4458844bbc0b0fa7d9, type: 2}
-  _clock: {fileID: 1488617047}
-  _waypoints:
-  - {fileID: 1730770382}
-  - {fileID: 1796077178}
-  - {fileID: 2064339568}
-  - {fileID: 1991156160}
-  - {fileID: 14107476}
-  - {fileID: 1724425609}
-  - {fileID: 1833133201}
-  - {fileID: 1063819749}
-  - {fileID: 1686733775}
-  - {fileID: 1612773164}
-  _sampleDistance: 3
---- !u!195 &1528935506
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528935504}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!4 &1528935507
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528935504}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14, y: 0, z: -6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1001135656}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1545532357
 GameObject:
   m_ObjectHideFlags: 0
@@ -4026,6 +3656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.Waypoint
   _id: Home4
+  _role: Residence
 --- !u!4 &1612773165
 Transform:
   m_ObjectHideFlags: 0
@@ -4041,53 +3672,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1624278505
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1624278506}
-  - component: {fileID: 1624278507}
-  m_Layer: 0
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1624278506
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624278505}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1141527125}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1624278507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624278505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0b85cf7260d964385024bfa79d3680, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Core.CharacterVisual
-  _modelPrefab: {fileID: 8926581637815301211, guid: 16f92525d86744f45b60fecc0c7ae712, type: 3}
-  _controller: {fileID: 9100000, guid: bcf52fdc6228b3e42819249921dd1d84, type: 2}
-  _placeholderColor: {r: 0.65, g: 0.65, b: 0.65, a: 1}
 --- !u!1 &1649826398
 GameObject:
   m_ObjectHideFlags: 0
@@ -4135,6 +3719,10 @@ MonoBehaviour:
   _modelPrefab: {fileID: 3636453559431540544, guid: 737aacef4e7907e4a86f70771fe44aff, type: 3}
   _controller: {fileID: 9100000, guid: bcf52fdc6228b3e42819249921dd1d84, type: 2}
   _placeholderColor: {r: 0.15, g: 0.3, b: 0.9, a: 1}
+  _modelYaw: -90
+  _deferBuild: 0
+  _turnSpeed: 720
+  _acceleration: 20
 --- !u!1 &1686733774
 GameObject:
   m_ObjectHideFlags: 0
@@ -4165,6 +3753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.Waypoint
   _id: Cafe
+  _role: 
 --- !u!4 &1686733776
 Transform:
   m_ObjectHideFlags: 0
@@ -4322,6 +3911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.Waypoint
   _id: Home
+  _role: Residence
 --- !u!4 &1724425610
 Transform:
   m_ObjectHideFlags: 0
@@ -4367,6 +3957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.Waypoint
   _id: Market
+  _role: 
 --- !u!4 &1730770383
 Transform:
   m_ObjectHideFlags: 0
@@ -4460,6 +4051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.Waypoint
   _id: Park
+  _role: 
 --- !u!4 &1796077179
 Transform:
   m_ObjectHideFlags: 0
@@ -4473,88 +4065,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1829460584
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1829460587}
-  - component: {fileID: 1829460586}
-  - component: {fileID: 1829460585}
-  m_Layer: 0
-  m_Name: Npc_Younghee
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1829460585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829460584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb0fd51c1fd872c4abe4c8e72fe577a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.NpcAgent
-  _profile: {fileID: 11400000, guid: 2ce4fb957c0bf1645b237ce13d0b3dd3, type: 2}
-  _clock: {fileID: 1488617047}
-  _waypoints:
-  - {fileID: 1730770382}
-  - {fileID: 1796077178}
-  - {fileID: 2064339568}
-  - {fileID: 1991156160}
-  - {fileID: 14107476}
-  - {fileID: 1724425609}
-  - {fileID: 1833133201}
-  - {fileID: 1063819749}
-  - {fileID: 1686733775}
-  - {fileID: 1612773164}
-  _sampleDistance: 3
---- !u!195 &1829460586
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829460584}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!4 &1829460587
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829460584}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14, y: 0, z: 6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 526996552}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1833133200
@@ -4587,6 +4097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.Waypoint
   _id: Work
+  _role: 
 --- !u!4 &1833133202
 Transform:
   m_ObjectHideFlags: 0
@@ -4850,6 +4361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.Waypoint
   _id: Home3
+  _role: Residence
 --- !u!4 &1991156161
 Transform:
   m_ObjectHideFlags: 0
@@ -5060,6 +4572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.Waypoint
   _id: Home2
+  _role: Residence
 --- !u!4 &2064339569
 Transform:
   m_ObjectHideFlags: 0
@@ -5224,7 +4737,6 @@ SceneRoots:
   - {fileID: 1724425610}
   - {fileID: 1833133202}
   - {fileID: 1796077179}
-  - {fileID: 384023663}
   - {fileID: 1686733776}
   - {fileID: 1730770383}
   - {fileID: 14107477}
@@ -5232,10 +4744,6 @@ SceneRoots:
   - {fileID: 1991156161}
   - {fileID: 1612773165}
   - {fileID: 1063819750}
-  - {fileID: 1141527125}
-  - {fileID: 553691608}
-  - {fileID: 1829460587}
-  - {fileID: 1528935507}
   - {fileID: 399302116}
   - {fileID: 86135699}
   - {fileID: 1545532358}
@@ -5249,3 +4757,5 @@ SceneRoots:
   - {fileID: 429944757}
   - {fileID: 405813685}
   - {fileID: 1768394297}
+  - {fileID: 281322389}
+  - {fileID: 1066893928}

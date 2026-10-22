@@ -73,14 +73,15 @@ namespace CrimeLife.Social
             if (!CanDo(reached, _kind)) return;
 
             RelationshipSettings s = _config.Settings;
+            // 상대의 친화력에 따라 같은 행동도 효과가 다르다
             if (_kind == SocialKind.Gift)
             {
                 _wallet.TrySpend(s.GiftCost);
-                _book.Add(reached, s.GiftGain);
+                _book.Add(reached, RelationshipLogic.SocialGain(s.GiftGain, reached.Sociability));
             }
             else
             {
-                _book.Add(reached, s.ChatGain);
+                _book.Add(reached, RelationshipLogic.SocialGain(s.ChatGain, reached.Sociability));
             }
 
             reached.StartSocialCooldown(s.SocialCooldown);

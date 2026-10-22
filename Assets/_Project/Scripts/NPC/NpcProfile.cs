@@ -13,6 +13,15 @@ namespace CrimeLife.NPC
         [Tooltip("높을수록 소매치기를 알아채기 쉽다 (범죄 시스템에서 사용)")]
         [SerializeField, Range(0f, 1f)] private float _alertness = 0.5f;
 
+        [Tooltip("친화력: 높을수록 대화/선물로 친밀도가 잘 오른다")]
+        [SerializeField, Range(0f, 1f)] private float _sociability = 0.5f;
+
+        [Header("외형/집")]
+        [Tooltip("캐릭터 카탈로그의 번호")]
+        [SerializeField] private int _appearanceIndex;
+        [Tooltip("일과표의 @Home이 가리키는 집 장소 Id")]
+        [SerializeField] private string _homeId;
+
         [Header("관계")]
         [Tooltip("게임 시작 시 플레이어와의 친밀도 (0~100)")]
         [SerializeField, Range(0f, 100f)] private float _initialFriendship;
@@ -29,5 +38,21 @@ namespace CrimeLife.NPC
         public float Alertness => _alertness;
         public int StartingMoney => _startingMoney;
         public ScheduleEntry[] Schedule => _schedule;
+
+        // 고정 주요 NPC도 랜덤 NPC와 같은 데이터 형태로 바꿔서 NpcAgent에 넘긴다
+        public NpcData ToData() => new NpcData
+        {
+            Id = Id,
+            DisplayName = _displayName,
+            IsMain = true,
+            Alertness = _alertness,
+            Sociability = _sociability,
+            Personality = NpcGenerator.PersonalityLabel(_alertness, _sociability),
+            Money = _startingMoney,
+            AppearanceIndex = _appearanceIndex,
+            InitialFriendship = _initialFriendship,
+            HomeId = _homeId,
+            Schedule = (ScheduleEntry[])_schedule.Clone(),
+        };
     }
 }
