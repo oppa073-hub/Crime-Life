@@ -13,6 +13,9 @@ namespace CrimeLife.Core
         [Tooltip("모델이 없을 때 캡슐 색 (플레이어/경찰/NPC 구분용)")]
         [SerializeField] private Color _placeholderColor = new Color(0.6f, 0.6f, 0.6f);
 
+        [Tooltip("모델의 앞면이 루트의 앞(+Z)과 어긋난 만큼 보정하는 각도. 이 에셋 팩의 캐릭터는 옆(+X)을 보고 만들어져 있어 -90이 필요하다")]
+        [SerializeField] private float _modelYaw = -90f;
+
         [Header("이동 느낌")]
         [Tooltip("NavMeshAgent 기본값(120)은 너무 느려서, 이미 걷기 시작한 뒤에야 방향을 돌려 엉뚱한 쪽을 보며 걷는다")]
         [SerializeField] private float _turnSpeed = 720f;
@@ -46,7 +49,7 @@ namespace CrimeLife.Core
         {
             GameObject model = Instantiate(_modelPrefab, transform);
             model.transform.localPosition = Vector3.zero;
-            model.transform.localRotation = Quaternion.identity;
+            model.transform.localRotation = Quaternion.Euler(0f, _modelYaw, 0f);
 
             var animator = model.GetComponent<Animator>();
             if (animator == null) animator = model.AddComponent<Animator>();
