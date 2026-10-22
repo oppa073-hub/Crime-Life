@@ -104,11 +104,14 @@ namespace CrimeLife.Core
             SceneManager.LoadScene(data.SceneName);
         }
 
-        private static SaveData Capture(string sceneName)
+        // 이전 상태를 복사해서 시작한다. 그래야 도시에서 저장해도 집에만 있는 값(가구 배치)이 사라지지 않는다.
+        private SaveData Capture(string sceneName)
         {
-            var data = new SaveData { SceneName = sceneName };
+            SaveData data = _data != null ? _data.Clone() : new SaveData();
+            data.SceneName = sceneName;
             foreach (ISaveable saveable in FindSaveables())
                 saveable.Save(data);
+            _data = data;
             return data;
         }
 

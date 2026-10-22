@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43cfdd58c4d28343aa503dfd1c3f6a5, type: 3}
+  m_Name: fridge
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Build.FurnitureDefinition
+  _id: fridge
+  _displayName: "\uB0C9\uC7A5\uACE0"
+  _size: {x: 1, y: 1}
+  _price: 120
+  _prefab: {fileID: 7736316679494217425, guid: 1b1219e6f163c724ca8fe3df5893e952, type: 3}

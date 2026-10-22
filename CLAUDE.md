@@ -27,6 +27,7 @@ Assets/
     Scripts/       # CrimeLife.Runtime.asmdef (EditMode 테스트가 참조)
       Core/        # GameClock, SimsCameraRig, GameSession(씬 전환/저장), SaveData, SpawnPoint
       Needs/       # 욕구 시스템 (포만감/에너지/평온)
+      Build/       # 집 꾸미기: LotGrid(순수 격자 로직), HomeLot, BuildModeController, FurnitureDefinition/Catalog
       Interaction/ # 가구 상호작용 (Interactable, PlayerInteractor)
       Player/      # 클릭 이동
       Crime/       # ICrimeAction, 소매치기, 지갑, 수배 열기
@@ -89,7 +90,8 @@ Assets/Scenes/   # City(도시), Home(플레이어 집). Build Settings에 둘 �
 
 ### 비전 구현 로드맵
 - [x] A. 구조: 집/도시 씬 분리, 문으로 이동, 상태 유지, F5/F9 저장
-- [ ] B. 집 꾸미기: 격자 가구 배치(회전/이동/삭제, 배치 판정, NavMesh 갱신), 가구는 데이터(SO)+프리팹 참조. 벽/문/바닥 편집은 그 다음
+- [x] B-1. 집 꾸미기(가구): 14x14 격자, B로 건축 모드, 카탈로그 구입, R 회전, 클릭 이동(무료), 우클릭 판매(50%), 배치 저장. 가구는 SO(`FurnitureDefinition`)+프리팹이고, 길찾기는 NavMeshObstacle(carve)로 처리한다
+- [ ] B-2. 벽/문/바닥 편집 (심즈의 핵심이지만 방 판정/건축 규칙이 따라와서 따로 진행)
 - [ ] C. 도시 블록아웃: 도로/건물을 박스로, NPC 일과표를 건물에 연결
 - [ ] D. 관계: NPC별 친밀도, 클릭 메뉴(대화/선물 등), 관계가 범죄에 영향
 - [ ] E. 생활비: 월세/음식값/공과금으로 범죄 생계 압박
@@ -100,3 +102,5 @@ Assets/Scenes/   # City(도시), Home(플레이어 집). Build Settings에 둘 �
 - 플레이 모드에서 `Application.runInBackground = true`를 코드로 켜야 에디터 포커스가 없어도 프레임이 흐른다 (프로젝트 설정은 건드리지 않는다).
 - 마우스 클릭은 `InputSystem.QueueStateEvent(Mouse.current, new MouseState{...}.WithButton(...))`로 흉내 낼 수 있다. Shift는 Keyboard에 같은 방식으로 넣는다.
 - 스크린샷은 `manage_camera screenshot`에 `output_folder: "Captures"`로 찍는다 (Assets 밖이라 .meta가 안 생긴다).
+- 에디터가 포커스를 잃은 상태에서는 가상 마우스 위치가 다음 프레임에 (0,0)으로 읽힌다. 호버가 필요한 테스트는 위치 이벤트를 보낸 뒤 1초 안에 같은 위치로 클릭 이벤트(위치+버튼 누름+뗌)를 한 번에 보낸다.
+- `execute_code`는 `using`을 못 쓰고 구형 컴파일러라 중첩 튜플이 안 된다. 전체 이름 + 문자열 파싱으로 쓴다. 에셋 삭제(`AssetDatabase.DeleteAsset`)는 안전장치로 막혀 있다.
