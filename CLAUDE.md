@@ -109,6 +109,19 @@ Assets/Scenes/   # City(도시), Home(플레이어 집). Build Settings에 둘 �
   - 에셋 팩의 `.unitypackage`를 임포트하면 URP 설정(`Assets/Settings/DefaultVolumeProfile` 등)을 덮어쓰고 `Packages/manifest.json`을 바꾼다. 임포트 후 덮어쓴 설정을 git으로 복원하고, 풀린 폴더를 `_External`로 옮긴다. 외부 팩이 요구한 패키지(ShaderGraph, VFX Graph, Adaptive Performance)는 아직 커밋하지 않았다
 - [ ] 가구 배치 상태를 SaveData에 저장 (B 이후), NPC 상태 저장
 
+### 도시 계획 확정 사항
+- 랜덤 NPC "20명 제한"은 풀었다: 도시 전체가 아니라 플레이어 주변 일정 거리 안에서 인원을 유지하고(거리로 만들고 지움), 먼 곳은 시뮬레이션하지 않는다. 인원/반경은 `PopulationConfig`로 조절한다.
+- 차량은 도시 다음 단계: 걸을 땐 클릭 이동, 차에 타면 WASD 직접 조작 + 추적 카메라. 차량 탈취(운전자 끌어내기)가 범죄 종류가 되고, 폐차장에서 처분한다. **차에 치인 보행자는 사망한다**(GTA식, 사용자 결정).
+- 도시는 데모 씬을 복사하지 않고(재배포 불가) **레이아웃 데이터 + 건물 슬롯(프리팹 또는 박스 대체)** 방식으로 만든다. 에셋이 없어도 같은 위치에 박스가 나온다.
+
+### 에셋 팩 측정값 (CityMassivePack, 2026-10-23 측정)
+- 데모 씬: 약 372x516m 규모, 오브젝트 18k, 메시 12.7k, 삼각형 2.2M, 머티리얼 36종. 도시 전체 NavMesh 베이크 0.3초, 에디터 1440p 약 100FPS(RTX 4070 SUPER)
+- **격자 단위 8m**: 도로 `Road_*`는 8x8m 모듈(2차로 조각 18x8, 34x34 교차로 등), 인도/잔디 `StreetTile`/`GrassTile`은 1/2/4m. 도로 폭 8m + 양쪽 인도 4m = 길 16m. 블록 56m(7모듈) + 길 16m = 피치 72m로 5x7칸이면 약 376x520m
+- **건물: 완성형 단일 메시 80종**(모델 키 = 이름에서 마지막 색 변형 글자 `_A.._H` 제거, 예 `Building_1_3`). 바닥 기준 원점(pivot이 바닥 중앙 근처), 높이 2.7~68m, 발자국 대부분 6~13m x 6~20m, 큰 것은 31x31m. 같은 발자국에 층수만 다른 변형이 있다(`Building_1_1`~`1_5`: 3.4~15m)
+- **건물 정면(출입구/간판)은 +X 방향, 뒷면(-X)은 민짜 벽.** 길이 어느 쪽에 있느냐에 따라 회전: 길이 +X(동)쪽이면 yaw 0, +Z(북) yaw -90, -X(서) yaw 180, -Z(남) yaw 90
+- 차량: 본체 + 바퀴 4개(`FL FR RL RR`)로 분리, 약 3.6x1.7m, 부품마다 콜라이더(5개). 종류: 승용 `Car 1~18`, `Police Car`, `Taxi`, `Post Car`, `Ice Cream Truck`, `RV Car`, `Trucks`, `Air`. 운전 물리는 단순 박스 콜라이더 하나로 대체해서 만든다
+- 캐릭터 프리팹 `PoliceMan_*`(경찰 24종), `Character_Z_*`(좀비, 쓰지 않음)
+
 ## MCP 검증 팁
 - 플레이 모드에서 `Application.runInBackground = true`를 코드로 켜야 에디터 포커스가 없어도 프레임이 흐른다 (프로젝트 설정은 건드리지 않는다).
 - 마우스 클릭은 `InputSystem.QueueStateEvent(Mouse.current, new MouseState{...}.WithButton(...))`로 흉내 낼 수 있다. Shift는 Keyboard에 같은 방식으로 넣는다.
