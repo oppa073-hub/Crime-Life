@@ -100,6 +100,7 @@ Assets/Scenes/   # City(도시), Home(플레이어 집). Build Settings에 둘 �
 - [x] E. 생활비: 게임 시간 48시간마다 월세 80 + 공과금 20 청구, 집 우편함에서 납부. 기한(24시간) 넘기면 연체료 20% + 평온 -30 + 가장 비싼 가구 압류(도시에서 밀린 건 집에 들어올 때 적용). `GameClock`에 Day/TotalHours 추가. 음식은 냉장고 20
 - [ ] F. 에셋 교체: 박스 → 모델/애니메이션 (`Assets/_External/`에 두고 gitignore)
   - [x] F-1 캐릭터: `CharacterVisual` 슬롯(모델 프리팹 또는 색 캡슐 대체) + `CharacterLocomotion.controller`(속도 0/3.5/6 블렌드: 대기/걷기/달리기) + `CharacterAnimator`. 플레이어 `Character_10_1_1`, 민수 7_1_1, 지연 11_1_2, 철수 B_1, 영희 4_1_1, 동수 9_1_1, 경찰 `PoliceMan_B_1_1`
+  - 이동 느낌: NavMeshAgent 기본 회전 속도(120)/가속도(8)는 낮아서 걷기 시작한 뒤에야 방향이 돌아간다. `CharacterVisual`이 회전 720/가속 20으로 맞춘다. 회전/이동 같은 "움직임" 문제는 스크린샷 한 장으로 판단하지 말고, 프레임별 값(`EditorApplication.update` 콜백 + Debug.Log)으로 측정해서 확인한다
   - [ ] F-2 도시: 건물/도로/소품 프리팹으로 교체 (NavMesh와 NPC 출입구 위치 재조정 필요)
   - [ ] F-3 집 가구: 실내 모델이 있는지 확인 후 결정
   - 외부 에셋 규칙: 씬/프리팹이 `_External`을 직접 참조하면 에셋 없는 환경에서 깨진다. `CharacterVisual`처럼 "참조가 비면 대체물"이 되는 슬롯 구조로 만들어 둔다. 에셋 임포트 시 `.blend`는 Blender가 없으면 에러가 나므로 프로젝트에 넣지 않는다(FBX만 쓴다)

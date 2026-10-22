@@ -13,11 +13,25 @@ namespace CrimeLife.Core
         [Tooltip("모델이 없을 때 캡슐 색 (플레이어/경찰/NPC 구분용)")]
         [SerializeField] private Color _placeholderColor = new Color(0.6f, 0.6f, 0.6f);
 
+        [Header("이동 느낌")]
+        [Tooltip("NavMeshAgent 기본값(120)은 너무 느려서, 이미 걷기 시작한 뒤에야 방향을 돌려 엉뚱한 쪽을 보며 걷는다")]
+        [SerializeField] private float _turnSpeed = 720f;
+        [Tooltip("기본값(8)이면 방향을 다 돌리기 전에 최고 속도가 된다")]
+        [SerializeField] private float _acceleration = 20f;
+
         private const float Height = 1.8f;
         private const float Radius = 0.35f;
 
         private void Awake()
         {
+            // 모델이 있든 캡슐이든 같은 이동 느낌이 되도록 에이전트 설정을 여기서 맞춘다
+            var agent = GetComponentInParent<UnityEngine.AI.NavMeshAgent>();
+            if (agent != null)
+            {
+                agent.angularSpeed = _turnSpeed;
+                agent.acceleration = _acceleration;
+            }
+
             if (_modelPrefab != null) BuildModel();
             else BuildPlaceholder();
 
