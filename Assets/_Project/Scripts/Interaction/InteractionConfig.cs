@@ -26,12 +26,16 @@ namespace CrimeLife.Interaction
         [Tooltip("0보다 크면 끝날 때 가진 장물을 이 비율로 현금화한다 (장물 처분소용)")]
         [SerializeField, Range(0f, 1f)] private float _lootConversionRate;
 
+        [Tooltip("켜면 끝날 때 미납 청구서를 전부 납부한다 (우편함용)")]
+        [SerializeField] private bool _payBills;
+
         [Header("씬 이동 (문)")]
         [Tooltip("비어 있지 않으면 끝날 때 이 씬으로 이동한다. Build Settings에 등록된 씬 이름")]
         [SerializeField] private string _loadScene;
         [Tooltip("도착한 씬에서 플레이어가 설 SpawnPoint의 Id")]
         [SerializeField] private string _spawnId;
 
+        public bool PayBills => _payBills;
         public string LoadScene => _loadScene;
         public string SpawnId => _spawnId;
         public string DisplayName => _displayName;

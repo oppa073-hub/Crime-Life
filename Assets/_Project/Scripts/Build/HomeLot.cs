@@ -72,6 +72,24 @@ namespace CrimeLife.Build
             Destroy(furniture.gameObject);
         }
 
+        // 연체 압류: 가장 비싼 가구부터 count개를 치운다. 압류된 가구 이름을 돌려준다.
+        public List<string> SeizeMostExpensive(int count)
+        {
+            var seized = new List<string>();
+            for (int n = 0; n < count && _placed.Count > 0; n++)
+            {
+                PlacedFurniture target = _placed[0];
+                foreach (PlacedFurniture furniture in _placed)
+                {
+                    if (furniture.Definition.Price > target.Definition.Price) target = furniture;
+                }
+
+                seized.Add(target.Definition.DisplayName);
+                Remove(target);
+            }
+            return seized;
+        }
+
         // 바닥 위 좌표에서, 가구 발자국의 중심이 그 점에 오도록 하는 기준 칸(왼쪽 아래)
         public Vector2Int WorldToCell(Vector3 world, Vector2Int rotatedSize)
         {

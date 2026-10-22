@@ -27,6 +27,7 @@ namespace CrimeLife.Core
     {
         public string SceneName;
         public float Hour;
+        public int Day;
         public int Cash;
         public int Loot;
         public float Heat;
@@ -37,6 +38,15 @@ namespace CrimeLife.Core
         // (빈 목록과 "저장된 적 없음"을 구분해야 해서 JsonUtility가 못 하는 null 대신 플래그를 쓴다)
         public bool HasFurniture;
         public List<FurnitureRecord> Furniture = new List<FurnitureRecord>();
+
+        // 생활비 청구 상태. 아직 시작한 적 없으면 BillingInitialized가 false다.
+        public bool BillingInitialized;
+        public float BillingNextDueAt;
+        public int BillingUnpaid;
+        // 음수면 연체 중이 아님
+        public float BillingNextPenaltyAt = -1f;
+        // 도시에 있는 동안 연체된 분의 압류. 집에 들어오면 적용한다
+        public int PendingSeizures;
 
         // 저장된 NPC만 들어 있고, 없는 NPC는 프로필의 초기 친밀도를 쓴다
         public List<RelationshipRecord> Relationships = new List<RelationshipRecord>();

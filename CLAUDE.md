@@ -28,6 +28,7 @@ Assets/
       Core/        # GameClock, SimsCameraRig, GameSession(씬 전환/저장), SaveData, SpawnPoint
       Needs/       # 욕구 시스템 (포만감/에너지/평온)
       Build/       # 집 꾸미기: LotGrid(순수 격자 로직), HomeLot, BuildModeController, FurnitureDefinition/Catalog
+      Economy/     # 생활비: BillingLogic(순수), LivingCostConfig, BillingManager(청구/납부/연체)
       Social/      # 관계: RelationshipLogic(순수), Config, RelationshipBook(저장), PlayerSocialController(대화/선물)
       Interaction/ # 가구 상호작용 (Interactable, PlayerInteractor)
       Player/      # 클릭 이동
@@ -96,7 +97,7 @@ Assets/Scenes/   # City(도시), Home(플레이어 집). Build Settings에 둘 �
 - [x] C. 도시 블록아웃: 십자 도로 + 건물 박스 10개(NPC 집 5, 회사, 카페, 시장, 경찰서, 내 집) + 공원/광장 바닥, 건물 이름표(`PlaceLabels`). 건물 몸체는 NPC 장소(Waypoint) 뒤쪽에 두어서 waypoint가 곧 건물 출입구다. 건물은 NavMeshModifier로 "걸을 수 없음" 처리(지붕 위로 못 올라감)
 - [x] D. 관계: NPC별 친밀도(0~100, 낯선 사람/아는 사이/친구/절친), NPC 클릭 메뉴(대화/선물/소매치기/강도), 저장. 친할수록 경계심↓(털기 쉽고 목격 신고도 덜 함), 친한 사람을 털면 친밀도 폭락 + 죄책감으로 평온↓. NPC 쫓아가기는 `NpcChaser`를 범죄/사교가 공유. UI 위 클릭이 월드로 새지 않도록 `UiHit`로 막는다
 - [ ] D-2(선택). 사교 욕구(4번째 욕구)로 대화의 동기 만들기, NPC끼리의 관계, 관계가 정보/장물 거래로 이어지게
-- [ ] E. 생활비: 월세/음식값/공과금으로 범죄 생계 압박
+- [x] E. 생활비: 게임 시간 48시간마다 월세 80 + 공과금 20 청구, 집 우편함에서 납부. 기한(24시간) 넘기면 연체료 20% + 평온 -30 + 가장 비싼 가구 압류(도시에서 밀린 건 집에 들어올 때 적용). `GameClock`에 Day/TotalHours 추가. 음식은 냉장고 20
 - [ ] F. 에셋 교체: 박스 → 모델/애니메이션 (`Assets/_External/`에 두고 gitignore)
 - [ ] 가구 배치 상태를 SaveData에 저장 (B 이후), NPC 상태 저장
 

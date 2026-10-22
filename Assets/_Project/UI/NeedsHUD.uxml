@@ -4,6 +4,7 @@
         <ui:Label name="clock" text="00:00" class="clock" />
         <ui:Label name="money" text="" class="info" />
         <ui:Label name="heat" text="" class="info" />
+        <ui:Label name="bill" text="" class="info" />
         <ui:Label name="message" text="" class="info" />
         <ui:Label name="relation" text="" class="info" />
         <ui:Label name="hint" text="클릭: 이동 / NPC 클릭: 메뉴   F5 저장 / F9 불러오기" class="info" />

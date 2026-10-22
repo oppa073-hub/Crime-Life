@@ -1,6 +1,7 @@
 using System;
 using CrimeLife.Core;
 using CrimeLife.Crime;
+using CrimeLife.Economy;
 using CrimeLife.Needs;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,6 +15,8 @@ namespace CrimeLife.Interaction
     {
         [SerializeField] private NeedsController _needs;
         [SerializeField] private Wallet _wallet;
+        [Tooltip("우편함(청구서 납부)용. 청구 시스템이 없는 씬에서는 비워 둔다")]
+        [SerializeField] private BillingManager _billing;
         [Tooltip("오브젝트가 NavMesh 밖(장애물 위)이어도 가장 가까운 바닥을 찾는 거리")]
         [SerializeField] private float _sampleDistance = 3f;
         [SerializeField] private float _arriveTolerance = 0.3f;
@@ -65,6 +68,19 @@ namespace CrimeLife.Interaction
                 Rejected?.Invoke($"{config.DisplayName}: 처분할 장물이 없다");
                 return false;
             }
+            if (config.PayBills && _billing != null)
+            {
+                if (_billing.Unpaid <= 0)
+                {
+                    Rejected?.Invoke($"{config.DisplayName}: 낼 청구서가 없다");
+                    return false;
+                }
+                if (_wallet.Cash < _billing.Unpaid)
+                {
+                    Rejected?.Invoke($"{config.DisplayName}: 현금이 부족하다 ({_billing.Unpaid} 필요)");
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -105,6 +121,8 @@ namespace CrimeLife.Interaction
 
             if (config.LootConversionRate > 0f)
                 LootSold?.Invoke(_wallet.ConvertAllLoot(config.LootConversionRate));
+
+            if (config.PayBills && _billing != null) _billing.TryPay(_wallet);
 
             string scene = config.LoadScene;
             string spawnId = config.SpawnId;

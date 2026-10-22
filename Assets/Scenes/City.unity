@@ -2412,6 +2412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Interaction.PlayerInteractor
   _needs: {fileID: 872865889}
   _wallet: {fileID: 872865896}
+  _billing: {fileID: 1768394296}
   _sampleDistance: 3
   _arriveTolerance: 0.3
 --- !u!114 &872865894
@@ -3583,6 +3584,7 @@ GameObject:
   - component: {fileID: 1336230273}
   - component: {fileID: 1336230276}
   - component: {fileID: 1336230277}
+  - component: {fileID: 1336230278}
   m_Layer: 0
   m_Name: NeedsHUD
   m_TagString: Untagged
@@ -3674,6 +3676,19 @@ MonoBehaviour:
   _social: {fileID: 872865897}
   _book: {fileID: 429944756}
   _relationshipConfig: {fileID: 11400000, guid: 1dc3fb26a7a4a204b9e7e55af5bb3134, type: 2}
+--- !u!114 &1336230278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336230272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cece6407d7b2a84bb7a542ef2fbbe3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.UI.BillingHUD
+  _billing: {fileID: 1768394296}
 --- !u!1 &1357194567
 GameObject:
   m_ObjectHideFlags: 0
@@ -4708,6 +4723,54 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1768394295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768394297}
+  - component: {fileID: 1768394296}
+  m_Layer: 0
+  m_Name: Billing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1768394296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768394295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafec8c5613b3df47b527b36ed3c3dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Economy.BillingManager
+  _config: {fileID: 11400000, guid: 07d0b05994639e645b03947aa634305c, type: 2}
+  _clock: {fileID: 1488617047}
+  _needs: {fileID: 872865889}
+  _lot: {fileID: 0}
+--- !u!4 &1768394297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768394295}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5801,3 +5864,4 @@ SceneRoots:
   - {fileID: 1319380489}
   - {fileID: 429944757}
   - {fileID: 405813685}
+  - {fileID: 1768394297}
