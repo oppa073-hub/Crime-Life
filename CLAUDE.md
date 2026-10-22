@@ -41,6 +41,8 @@ Assets/
 - 씬 구성(오브젝트 생성, 컴포넌트 연결, NavMesh 베이크)은 Unity MCP로 한다. 가구 등 장애물을 추가하면 `Ground`의 NavMeshSurface를 다시 베이크한다.
 - `GameClock`과 `NeedsConfig`에 시간 배율이 따로 있다. 바꿀 때 둘을 같이 맞춘다.
 
+- 외부 에셋(에셋스토어 구매품, 다운로드한 에셋 팩)은 `Assets/_External/`에 넣는다. 이 폴더는 .gitignore로 제외되어 공개 저장소에 올라가지 않는다. 내가 직접 만든 에셋만 `_Project/`에 둔다.
+
 ## 코드 컨벤션
 - 언어: C#, 클래스/메서드는 PascalCase, private 필드는 `_camelCase`
 - 인스펙터 노출은 `public` 대신 `[SerializeField] private` 사용

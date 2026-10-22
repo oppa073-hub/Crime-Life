@@ -62,5 +62,5 @@ TestResult*.xml
 
 # 외부 에셋(에셋스토어 구매품 등)은 재배포 라이선스 문제가 있어 저장소에 넣지 않는다.
 # 외부 에셋은 여기에 넣으면 자동으로 무시된다.
-/Assets/ThirdParty/
-/Assets/ThirdParty.meta
+/Assets/_External/
+/Assets/_External.meta
