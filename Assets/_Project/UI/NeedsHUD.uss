@@ -1,0 +1,27 @@
+.needs-root {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    width: 240px;
+}
+
+.clock {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.info {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.needs-root ProgressBar {
+    margin-bottom: 6px;
+}
+
+/* 위급 상태를 색으로 바로 알아보게 한다 */
+.needs-root .critical .unity-progress-bar__progress {
+    background-color: rgb(200, 50, 50);
+}

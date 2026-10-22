@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba4f40d208eb434b94f6a1b18dcb0f1, type: 3}
+  m_Name: Npc_Minsu
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.NpcProfile
+  _displayName: "\uBBFC\uC218"
+  _alertness: 0.4
+  _startingMoney: 150
+  _schedule:
+  - StartHour: 0
+    WaypointId: Home
+    Label: "\uC9D1\uC5D0\uC11C \uD734\uC2DD"
+  - StartHour: 8
+    WaypointId: Work
+    Label: "\uCD9C\uADFC"
+  - StartHour: 18
+    WaypointId: Park
+    Label: "\uC0B0\uCC45"
+  - StartHour: 22
+    WaypointId: Home
+    Label: "\uADC0\uAC00"

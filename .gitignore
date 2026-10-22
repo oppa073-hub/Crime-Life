@@ -1,0 +1,66 @@
+# Unity 생성물
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emory[Cc]aptures/
+/[Rr]ecordings/
+
+# IDE / 솔루션 (Unity가 매번 다시 만든다)
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# 빌드 산출물
+*.apk
+*.aab
+*.unitypackage
+*.app
+crashlytics-build.properties
+
+# 에셋 임포트 중 생기는 임시 파일
+/[Aa]ssets/[Aa]ssetStoreTools*
+/[Aa]ssets/Plugins/Editor/JetBrains*
+sysinfo.txt
+
+# 코드 커버리지 / 테스트 결과
+/[Cc]ode[Cc]overage/
+TestResult*.xml
+
+# --- 이 프로젝트 전용 ---
+
+# Unity 템플릿이 넣어 주는 튜토리얼 에셋 (포트폴리오에 불필요)
+/Assets/TutorialInfo/
+/Assets/TutorialInfo.meta
+/Assets/Readme.asset
+/Assets/Readme.asset.meta
+
+# MCP 스크린샷 (README용 이미지는 docs/images에 따로 둔다)
+/Captures/
+/Assets/Screenshots/
+/Assets/Screenshots.meta
+
+# 이 PC에서만 쓰는 MCP 연결 설정
+/.mcp.json
+
+# 외부 에셋(에셋스토어 구매품 등)은 재배포 라이선스 문제가 있어 저장소에 넣지 않는다.
+# 외부 에셋은 여기에 넣으면 자동으로 무시된다.
+/Assets/ThirdParty/
+/Assets/ThirdParty.meta

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25bd57e74b354d247a08eaad7b5cefc3, type: 3}
+  m_Name: NeedsConfig
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Needs.NeedsConfig
+  _gameHoursPerRealSecond: 0.05
+  _satiety:
+    StartValue: 80
+    DecayPerHour: 4
+    CriticalThreshold: 25
+  _energy:
+    StartValue: 80
+    DecayPerHour: 3
+    CriticalThreshold: 20
+  _calm:
+    StartValue: 80
+    DecayPerHour: 1.5
+    CriticalThreshold: 25
+  _maxCrimePenaltyPerNeed: 0.2

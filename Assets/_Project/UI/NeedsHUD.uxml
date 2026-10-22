@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Style src="project://database/Assets/_Project/UI/NeedsHUD.uss" />
+    <ui:VisualElement name="root" class="needs-root">
+        <ui:Label name="clock" text="00:00" class="clock" />
+        <ui:Label name="money" text="" class="info" />
+        <ui:Label name="heat" text="" class="info" />
+        <ui:Label name="message" text="" class="info" />
+        <ui:Label name="hint" text="클릭: 이동/소매치기   Shift+클릭: 강도" class="info" />
+        <ui:ProgressBar name="satiety" title="포만감" low-value="0" high-value="100" value="80" />
+        <ui:ProgressBar name="energy" title="에너지" low-value="0" high-value="100" value="80" />
+        <ui:ProgressBar name="calm" title="평온" low-value="0" high-value="100" value="80" />
+    </ui:VisualElement>
+</ui:UXML>
