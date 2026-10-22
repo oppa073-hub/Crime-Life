@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba4f40d208eb434b94f6a1b18dcb0f1, type: 3}
   m_Name: Npc_Dongsu
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.NpcProfile
+  _id: 
   _displayName: "\uB3D9\uC218"
   _alertness: 0.9
+  _initialFriendship: 0
   _startingMoney: 500
   _schedule:
   - StartHour: 0

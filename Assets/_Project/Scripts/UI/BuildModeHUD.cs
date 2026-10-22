@@ -17,7 +17,9 @@ namespace CrimeLife.UI
 
         private void Start()
         {
-            VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+            var document = GetComponent<UIDocument>();
+            VisualElement root = document.rootVisualElement;
+            document.sortingOrder = 10;
 
             _toggle = new Button(_controller.Toggle) { text = "건축 모드 (B)" };
             _toggle.style.position = Position.Absolute;

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba4f40d208eb434b94f6a1b18dcb0f1, type: 3}
   m_Name: Npc_Minsu
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.NpcProfile
+  _id: 
   _displayName: "\uBBFC\uC218"
   _alertness: 0.4
+  _initialFriendship: 25
   _startingMoney: 150
   _schedule:
   - StartHour: 0

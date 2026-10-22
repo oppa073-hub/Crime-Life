@@ -2,6 +2,7 @@ using CrimeLife.Core;
 using CrimeLife.Crime;
 using CrimeLife.Interaction;
 using CrimeLife.NPC;
+using CrimeLife.Social;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,10 +16,15 @@ namespace CrimeLife.UI
         [SerializeField] private PlayerCrimeController _crime;
         [SerializeField] private PoliceOfficer _police;
         [SerializeField] private PlayerInteractor _interactor;
+        [Tooltip("관계 관련은 NPC가 없는 씬(집)에서는 비워 둔다")]
+        [SerializeField] private PlayerSocialController _social;
+        [SerializeField] private RelationshipBook _book;
+        [SerializeField] private RelationshipConfig _relationshipConfig;
 
         private Label _money;
         private Label _heatLabel;
         private Label _message;
+        private Label _relation;
 
         // 다른 컴포넌트의 Awake 이후에 초기값을 읽도록 Start에서 초기화한다
         private void Start()
@@ -27,6 +33,7 @@ namespace CrimeLife.UI
             _money = root.Q<Label>("money");
             _heatLabel = root.Q<Label>("heat");
             _message = root.Q<Label>("message");
+            _relation = root.Q<Label>("relation");
 
             SetMoney(_wallet.Cash, _wallet.Loot);
             SetHeat(Mathf.CeilToInt(_heat.Heat));
@@ -45,10 +52,24 @@ namespace CrimeLife.UI
             _interactor.LootSold += ShowSold;
             _crime.Rejected += ShowMessage;
             _crime.WitnessReported += ShowWitness;
+
+            // 관계 쪽은 NPC가 있는 씬(도시)에만 있다
+            if (_social != null)
+            {
+                _social.Rejected += ShowMessage;
+                _social.Performed += ShowSocial;
+            }
+            if (_book != null) _book.Changed += ShowRelation;
         }
 
         private void OnDestroy()
         {
+            if (_social != null)
+            {
+                _social.Rejected -= ShowMessage;
+                _social.Performed -= ShowSocial;
+            }
+            if (_book != null) _book.Changed -= ShowRelation;
             if (GameSession.Current != null) GameSession.Current.Notice -= ShowMessage;
             if (_wallet != null) _wallet.Changed -= SetMoney;
             if (_heat != null) _heat.HeatChanged -= SetHeat;
@@ -75,6 +96,16 @@ namespace CrimeLife.UI
         private void SetHeat(int heat) => _heatLabel.text = $"수배 열기 {heat}";
 
         private void ShowMessage(string text) => _message.text = text;
+
+        private void ShowSocial(SocialKind kind, NpcAgent npc) =>
+            _message.text = kind == SocialKind.Gift ? $"선물: {npc.DisplayName}" : $"대화: {npc.DisplayName}";
+
+        private void ShowRelation(NpcAgent npc, float value, float delta)
+        {
+            RelationshipTier tier = RelationshipLogic.GetTier(value, _relationshipConfig.Settings);
+            string sign = delta >= 0f ? "+" : "";
+            _relation.text = $"{npc.DisplayName} 친밀도 {Mathf.RoundToInt(value)} ({sign}{Mathf.RoundToInt(delta)}, {RelationshipText.TierName(tier)})";
+        }
 
         private void ShowWitness(NpcAgent witness) => _message.text = $"목격자 {witness.DisplayName}: 신고했다!";
 

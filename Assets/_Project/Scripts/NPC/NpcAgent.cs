@@ -18,10 +18,16 @@ namespace CrimeLife.NPC
         private int _currentIndex = -2;
         private int _money;
         private float _waryUntil;
+        private float _socialReadyAt;
 
         // 범죄를 당한 직후에는 경계해서 다시 노릴 수 없다
         public bool IsWary => Time.time < _waryUntil;
 
+        // 대화/선물을 연달아 해서 친밀도를 올리는 걸 막는다
+        public bool IsOnSocialCooldown => Time.time < _socialReadyAt;
+
+        public string Id => _profile.Id;
+        public float InitialFriendship => _profile.InitialFriendship;
         public string DisplayName => _profile.DisplayName;
         public float Alertness => _profile.Alertness;
         public int Money => _money;
@@ -39,6 +45,11 @@ namespace CrimeLife.NPC
         public void BecomeWary(float seconds)
         {
             _waryUntil = Time.time + seconds;
+        }
+
+        public void StartSocialCooldown(float seconds)
+        {
+            _socialReadyAt = Time.time + seconds;
         }
 
         // 범죄 시스템 연결 지점: 실제로 빼앗긴 금액을 돌려준다

@@ -1,5 +1,6 @@
 using System;
 using CrimeLife.Crime;
+using CrimeLife.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -270,15 +271,8 @@ namespace CrimeLife.Build
             return hit.collider.GetComponentInParent<PlacedFurniture>();
         }
 
-        private bool PointerOverUI(Vector2 screen)
-        {
-            IPanel panel = _uiDocument.rootVisualElement.panel;
-            if (panel == null) return false;
-
-            // 화면 좌표는 아래가 원점이고, UI Toolkit 패널 좌표는 위가 원점이다
-            Vector2 panelPos = RuntimePanelUtils.ScreenToPanel(panel, new Vector2(screen.x, Screen.height - screen.y));
-            return panel.Pick(panelPos) != null;
-        }
+        private bool PointerOverUI(Vector2 screen) =>
+            UiHit.IsOverUI(_uiDocument.rootVisualElement.panel, screen);
 
         private void CreateGhost(FurnitureDefinition definition)
         {

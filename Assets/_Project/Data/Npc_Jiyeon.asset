@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba4f40d208eb434b94f6a1b18dcb0f1, type: 3}
   m_Name: Npc_Jiyeon
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.NPC.NpcProfile
+  _id: 
   _displayName: "\uC9C0\uC5F0"
   _alertness: 0.7
+  _initialFriendship: 10
   _startingMoney: 300
   _schedule:
   - StartHour: 0

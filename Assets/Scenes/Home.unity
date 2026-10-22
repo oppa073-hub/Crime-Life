@@ -924,6 +924,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Player.ClickToMoveController
   _camera: {fileID: 330585545}
+  _uiDocument: {fileID: 1336230274}
+  _social: {fileID: 0}
   _sampleDistance: 1.5
   _maxRayDistance: 200
 --- !u!195 &872865892
@@ -980,7 +982,8 @@ MonoBehaviour:
   _needs: {fileID: 872865889}
   _wallet: {fileID: 872865896}
   _heat: {fileID: 872865895}
-  _repathInterval: 0.25
+  _relationships: {fileID: 0}
+  _relationshipConfig: {fileID: 0}
 --- !u!114 &872865895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1701,6 +1704,9 @@ MonoBehaviour:
   _crime: {fileID: 872865894}
   _police: {fileID: 0}
   _interactor: {fileID: 872865893}
+  _social: {fileID: 0}
+  _book: {fileID: 0}
+  _relationshipConfig: {fileID: 0}
 --- !u!1 &1488617046
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,6 +28,7 @@ Assets/
       Core/        # GameClock, SimsCameraRig, GameSession(씬 전환/저장), SaveData, SpawnPoint
       Needs/       # 욕구 시스템 (포만감/에너지/평온)
       Build/       # 집 꾸미기: LotGrid(순수 격자 로직), HomeLot, BuildModeController, FurnitureDefinition/Catalog
+      Social/      # 관계: RelationshipLogic(순수), Config, RelationshipBook(저장), PlayerSocialController(대화/선물)
       Interaction/ # 가구 상호작용 (Interactable, PlayerInteractor)
       Player/      # 클릭 이동
       Crime/       # ICrimeAction, 소매치기, 지갑, 수배 열기
@@ -93,7 +94,8 @@ Assets/Scenes/   # City(도시), Home(플레이어 집). Build Settings에 둘 �
 - [x] B-1. 집 꾸미기(가구): 14x14 격자, B로 건축 모드, 카탈로그 구입, R 회전, 클릭 이동(무료), 우클릭 판매(50%), 배치 저장. 가구는 SO(`FurnitureDefinition`)+프리팹이고, 길찾기는 NavMeshObstacle(carve)로 처리한다
 - [ ] B-2. 벽/문/바닥 편집 (심즈의 핵심이지만 방 판정/건축 규칙이 따라와서 따로 진행)
 - [x] C. 도시 블록아웃: 십자 도로 + 건물 박스 10개(NPC 집 5, 회사, 카페, 시장, 경찰서, 내 집) + 공원/광장 바닥, 건물 이름표(`PlaceLabels`). 건물 몸체는 NPC 장소(Waypoint) 뒤쪽에 두어서 waypoint가 곧 건물 출입구다. 건물은 NavMeshModifier로 "걸을 수 없음" 처리(지붕 위로 못 올라감)
-- [ ] D. 관계: NPC별 친밀도, 클릭 메뉴(대화/선물 등), 관계가 범죄에 영향
+- [x] D. 관계: NPC별 친밀도(0~100, 낯선 사람/아는 사이/친구/절친), NPC 클릭 메뉴(대화/선물/소매치기/강도), 저장. 친할수록 경계심↓(털기 쉽고 목격 신고도 덜 함), 친한 사람을 털면 친밀도 폭락 + 죄책감으로 평온↓. NPC 쫓아가기는 `NpcChaser`를 범죄/사교가 공유. UI 위 클릭이 월드로 새지 않도록 `UiHit`로 막는다
+- [ ] D-2(선택). 사교 욕구(4번째 욕구)로 대화의 동기 만들기, NPC끼리의 관계, 관계가 정보/장물 거래로 이어지게
 - [ ] E. 생활비: 월세/음식값/공과금으로 범죄 생계 압박
 - [ ] F. 에셋 교체: 박스 → 모델/애니메이션 (`Assets/_External/`에 두고 gitignore)
 - [ ] 가구 배치 상태를 SaveData에 저장 (B 이후), NPC 상태 저장

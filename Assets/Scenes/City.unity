@@ -1232,6 +1232,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 368891147}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &405813682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 405813685}
+  - component: {fileID: 405813684}
+  - component: {fileID: 405813683}
+  m_Layer: 0
+  m_Name: NpcMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &405813683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405813682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446ed6795d0150347a606f13111dffde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.UI.NpcMenu
+  _clickSource: {fileID: 872865891}
+  _camera: {fileID: 330585545}
+  _book: {fileID: 429944756}
+  _relationshipConfig: {fileID: 11400000, guid: 1dc3fb26a7a4a204b9e7e55af5bb3134, type: 2}
+  _social: {fileID: 872865897}
+  _crime: {fileID: 872865894}
+  _interactor: {fileID: 872865893}
+--- !u!114 &405813684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405813682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 6df43820c7c96584192dd80eb7bb714a, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 0}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &405813685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405813682}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,6 +1576,50 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 1, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &429944755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 429944757}
+  - component: {fileID: 429944756}
+  m_Layer: 0
+  m_Name: Relationships
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &429944756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429944755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de277354e0ddf1e48a70c6a67e8d06fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Social.RelationshipBook
+--- !u!4 &429944757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429944755}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2203,6 +2322,7 @@ GameObject:
   - component: {fileID: 872865896}
   - component: {fileID: 872865895}
   - component: {fileID: 872865894}
+  - component: {fileID: 872865897}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2252,6 +2372,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Player.ClickToMoveController
   _camera: {fileID: 330585545}
+  _uiDocument: {fileID: 1336230274}
+  _social: {fileID: 872865897}
   _sampleDistance: 1.5
   _maxRayDistance: 200
 --- !u!195 &872865892
@@ -2308,7 +2430,8 @@ MonoBehaviour:
   _needs: {fileID: 872865889}
   _wallet: {fileID: 872865896}
   _heat: {fileID: 872865895}
-  _repathInterval: 0.25
+  _relationships: {fileID: 429944756}
+  _relationshipConfig: {fileID: 11400000, guid: 1dc3fb26a7a4a204b9e7e55af5bb3134, type: 2}
 --- !u!114 &872865895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2336,6 +2459,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Crime.Wallet
   _cash: 50
   _loot: 0
+--- !u!114 &872865897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872865888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9106fa680cfa5c14eaa041b4d458ba7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CrimeLife.Runtime::CrimeLife.Social.PlayerSocialController
+  _config: {fileID: 11400000, guid: 1dc3fb26a7a4a204b9e7e55af5bb3134, type: 2}
+  _book: {fileID: 429944756}
+  _wallet: {fileID: 872865896}
 --- !u!1 &947417322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3533,6 +3671,9 @@ MonoBehaviour:
   _crime: {fileID: 872865894}
   _police: {fileID: 1958567790}
   _interactor: {fileID: 872865893}
+  _social: {fileID: 872865897}
+  _book: {fileID: 429944756}
+  _relationshipConfig: {fileID: 11400000, guid: 1dc3fb26a7a4a204b9e7e55af5bb3134, type: 2}
 --- !u!1 &1357194567
 GameObject:
   m_ObjectHideFlags: 0
@@ -5658,3 +5799,5 @@ SceneRoots:
   - {fileID: 1504648489}
   - {fileID: 1471143525}
   - {fileID: 1319380489}
+  - {fileID: 429944757}
+  - {fileID: 405813685}
